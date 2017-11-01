@@ -15,6 +15,14 @@ Pour installer le projet dans un serveur :
 
 ## Framework, bibliothèques, outils utilisés
 
+Il y a beaucoup de code natif dans ce projet, surtout en JavaScript
+car il est présenté pour valider un diplôme de fin de formation.
+
+Une version est en cours de realisation avec des frameworks et des bibliothèques plus moderne
+tel que Symphony ou React.
+
+Une application mobile est aussi prévue
+
 * Silex
 * Twig
 * Bootstrap 4
