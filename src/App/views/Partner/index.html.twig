@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}" type="text/css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="{{ asset('lib/bootstrap-4.0.0-beta-dist/css/bootstrap.min.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/partner/style.css') }}" type="text/css" >
+    <title>Partenaire lesitedelassurance</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="{{ path('courtalia') }}">lesitedelassurance</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a id="reporting_button" data-route="reporting" class="nav-link" href="#">Reporting</a>
+          </li>
+          <li class="nav-item">
+            <a id="calendar_button" data-route="calendar" class="nav-link" href="#">Calendrier</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Mon compte
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="{{ path('change_password')}}">Changer mon mot de passe</a>
+            </div>
+          </li>
+        </ul>
+        <span class="navbar-text">
+          {{ user.user_name }} {{ user.user_first_name }} 
+        </span>
+      </div>
+    </nav>
+    <div id="error_message" class="alert alert-danger" role="alert" hidden></div>
+    <div class="container">
+      <h1>Mon Reporting</h1>
+      <hr class="my-4">
+      <div id="reporting" hidden>
+        <div id="rdv_sold"> </div>
+        <nav id="pagination_top" aria-label="Page navigation example">
+          <ul class="pagination justify-content-end">
+            <li class="page-item">
+              <a class="pagination_previous page-link" href="#">Previous</a>
+            </li>
+            <li class="page-item pagination_nb active"><a class="page-link" href="#" data-page="1">1</a></li>
+            <li class="page-item pagination_nb"><a class="page-link" href="#" data-page="2">2</a></li>
+            <li class="page-item pagination_nb"><a class="page-link" href="#" data-page="3">3</a></li>
+            <li class="page-item">
+              <a class="pagination_next page-link" href="#">Next</a>
+            </li>
+          </ul>
+        </nav>
+        <div id="rdv_content"> </div>
+        <nav id="pagination_bottom" aria-label="Page navigation example">
+          <ul class="pagination justify-content-end">
+            <li class="page-item">
+              <a class="pagination_previous page-link" href="#">Previous</a>
+            </li>
+            <li class="page-item pagination_nb active"><a class="page-link" href="#" data-page="1">1</a></li>
+            <li class="page-item pagination_nb"><a class="page-link" href="#" data-page="2">2</a></li>
+            <li class="page-item pagination_nb"><a class="page-link" href="#" data-page="3">3</a></li>
+            <li class="page-item">
+              <a class="page-link pagination_next" href="#">Next</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div id="calendar" hidden>
+        <div class="flex space-between my-3">
+          <em><div id="date_to_string"></div></em>
+          <div id="arrows"> 
+            <span id="current_date"> </span>
+            <span id="previous_button" data-action="goToPrevious">
+              <i class="fa fa-chevron-left" aria-hidden="true"></i>
+            </span>
+            <span id="next_button" data-action="goToNext">
+              <i class="fa fa-chevron-right" aria-hidden="true"></i>
+            </span>
+          </div>
+        </div>
+        <table>
+          <tr>
+            <th class="white"></th>
+            <th class="th th-month"></th>
+            <th class="th th-month"></th>
+            <th class="th th-month"></th>
+            <th class="th th-month"></th>
+            <th class="th th-month"></th>
+            <th class="th th-month"></th>
+            <th class="th th-month"></th>
+          </tr>
+          {% for i in 8..19 %}
+          <tr>
+            <td class="hours" >{{ i }}</td>
+            {% for j in 1..7 %}
+            <td data-column="{{ j }}" data-hour="{{ i }}" data-rdvs='0'>
+            </td>
+            {% endfor %}
+          </tr>
+          {% endfor %}
+        </table>
+      </div>
+      <div id="rdv_form" hidden>
+        <h4 class="my-5">Fixer un RDV pour le <span id="date_rdv">  </span></h4>
+        <hr>
+        <div class="text-right">
+          <small class="text-muted">Vous devez renseigner ces informations sur le client</small>
+        </div>
+        <form action="#" method="POST">
+          <div class="form-group"> 
+            <label for="client_name">Nom</label> 
+            <input class="form-control" type="text" placeholder="Nom" name="client_name" id="client_name" required/>
+          </div>
+          <div class="form-group"> 
+            <label for="client_first_name">Prénom</label> 
+            <input class="form-control" type="text" placeholder="Prénom" name="client_first_name" id="client_first_name" required/>
+          </div>
+          <div class="form-group"> 
+            <label for="client_email">E-Mail</label> 
+            <input class="form-control" type="email" placeholder="E-mail" name="client_email" id="client_email" required/>
+          </div>
+          <div class="form-group"> 
+            <label for="tel">Téléphone</label> 
+            <input class="form-control" type="text" placeholder="Téléphone" name="client_tel" id="client_tel" required/>
+          </div>
+          <div class="form-group"> 
+            <label for="rdv_objet">Objet du RDV</label> 
+            <select class="form-control" name="rdv_object" id="rdv_object" required/>
+              <option value="1">Santé</option>
+              <option value="2">Habitation</option>
+              <option value="3">Auto</option>
+              <option value="4">Assurance prêt</option>
+              <option value="5">Prévoyance</option>
+            </select>
+          </div>
+          <div class="text-right">
+            <button id="rdv_form_submit" type="submit" class="btn btn-primary">Enregistrer</button>
+            <button id="btn_annul" class="btn btn-default" data-show="calendar" data-hide="rdv_form" type="reset">Annuler</button>
+          </div>
+        </form>
+      </div>
+      <hr class="mb-3 mt-5">
+    </div>
+    <footer class="text-center">
+      lesitedelassurance - Espace Partenaire
+    </footer>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    {#
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="{{ asset('lib/bootstrap-4.0.0-beta-dist/js/bootstrap.min.js') }}"></script>
+    #}
+
+
+
+
+
+    <script src="{{ asset('js/dist/polyfill.min.js') }}"></script>
+    <script src="{{ asset('js/dist/partner.js') }}"></script>
+  </body>
+</html>

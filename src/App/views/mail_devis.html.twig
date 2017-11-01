@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Nouveau devis lesitedelassurance</title>
+  </head>
+  <body style="padding:0;margin:0;line-height:1.6;">
+    <h1 style="background:rgb(86, 61, 124);color:white;padding: 1rem;">lesitedelassurance</h1>
+    <div id="main">
+      <h2 style="padding: 0.5rem;border-bottom:0.05rem solid gray;">Nouvelle demande de devis</h2>
+      {% autoescape false %}
+      {{ devis.assurancetext }}
+      {% endautoescape %}
+      <h3 style="padding:0.5rem;border-bottom:0.05rem solid gray;">Coordonées</h3>
+      <p class="lead">{{ devis.pros_part }} </p>
+      <ul style="list-style:none;">
+        <li>Nom : {{ devis.lastname |upper }}</li>
+        <li>Prénom : {{ devis.firstname |capitalize }}</li>
+        <li>Code postal : {{ devis.postal_code }}</li>
+        <li>Ville : {{ devis.city }}</li>
+        <li>E-mail : <a href="mailto:{{devis.email }}">{{ devis.email }}</a></li>
+        <li>Tel : <a href="tel:{{ devis.tel }}">{{ devis.tel }}</a></li>
+      </ul>
+      <p style="margin-top:2rem;"><a href="https/www.lesitedelassurance.fr">https://www.lesitedelassurance.fr</a></p>
+    </div>
+  </body>
+</html>

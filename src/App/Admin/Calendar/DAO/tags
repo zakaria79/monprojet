@@ -1,0 +1,170 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+DAO	DAO.php	/^abstract class DAO$/;"	c
+Date	copyEventDAO.php	/^		$Date = new \\DateTimeImmutable(substr($date,0,7).'-01');$/;"	v
+EventDAO	EventDAO.php	/^class EventDAO extends DAO$/;"	c
+EventDAO	copyEventDAO.php	/^class EventDAO extends DAO$/;"	c
+UserDAO	UserDAO.php	/^class UserDAO extends DAO implements UserProviderInterface$/;"	c
+__construct	DAO.php	/^  public function __construct(Connection $db) {$/;"	f
+buildDomainObject	DAO.php	/^  protected abstract function buildDomainObject(array $row);$/;"	f
+buildDomainObject	EventDAO.php	/^	public function buildDomainObject(array $row) \/\/ {{{$/;"	f
+buildDomainObject	UserDAO.php	/^	protected function buildDomainObject(array $row)$/;"	f
+buildDomainObject	copyEventDAO.php	/^	public function buildDomainObject(array $row)$/;"	f
+class	UserDAO.php	/^		$class = get_class($user);$/;"	v
+count	EventDAO.php	/^				$count = 0;$/;"	v
+dE	copyEventDAO.php	/^				$dE = new \\DateTime($dateEnd);$/;"	v
+dS	copyEventDAO.php	/^				$dS = new \\DateTime($dateStart);$/;"	v
+date	copyEventDAO.php	/^			$date = \\DateTime::createFromFormat($format, $dateEnd);$/;"	v
+date	copyEventDAO.php	/^			$date = \\DateTime::createFromFormat($format, $dateStart);$/;"	v
+dateE	copyEventDAO.php	/^				$dateE = new \\DateTime($event['event_end']);$/;"	v
+dateEnd	copyEventDAO.php	/^					$dateEnd = new \\DateTime($event['event_end']);$/;"	v
+dateEnd	copyEventDAO.php	/^			$dateEnd = $row['date_end'].' '.$row['hour_end'];$/;"	v
+dateEnd	copyEventDAO.php	/^			$dateEnd = new \\DateTime($row['event_end']);$/;"	v
+dateEnd	copyEventDAO.php	/^		$dateEnd = $date.' 00:00:00';$/;"	v
+dateEndRec	EventDAO.php	/^								$dateEndRec = $endCalendar;$/;"	v
+dateEndRec	EventDAO.php	/^							} else { $dateEndRec = $event->getEventDateEndRec(); }$/;"	v
+dateEndRec	EventDAO.php	/^						} else { $dateEndRec = $endCalendar; }$/;"	v
+dateEndRecInclude	EventDAO.php	/^						$dateEndRecInclude = $dateEndRec->add(new \\DateInterval('P1D'));$/;"	v
+dateInterval	test.php	/^						$dateInterval = new \\DateInterval('P'.$event['event_interval'].$rec);$/;"	v
+dateInterval	test.php	/^					} else { $dateInterval = $oneDayInterval; }   \/\/ interval entre les occurences$/;"	v
+dateS	copyEventDAO.php	/^				$dateS = new \\DateTime($event['event_start']);$/;"	v
+dateStart	copyEventDAO.php	/^					$dateStart = new \\DateTime($event['event_start']);$/;"	v
+dateStart	copyEventDAO.php	/^			$dateStart = $row['date_start'].' '.$row['hour_start'];$/;"	v
+dateStart	copyEventDAO.php	/^			$dateStart = new \\DateTime($row['event_start']);$/;"	v
+dateStart	copyEventDAO.php	/^		$dateStart = $date.' 23:59:59';$/;"	v
+date_end_rec	test.php	/^						$date_end_rec = new \\DateTimeImmutable($event['event_date_end_rec'].' 23:59:59');$/;"	v
+dayMore	EventDAO.php	/^									$dayMore = 0;$/;"	v
+day_rec	copyEventDAO.php	/^						$day_rec = implode(',',$row['event_day_rec']);$/;"	v
+day_rec	copyEventDAO.php	/^					} else { $day_rec = $row['event_day_rec']; }$/;"	v
+daysDiffNumber	EventDAO.php	/^				$daysDiffNumber = (int) $event->getEventStart()->diff($startCalendar)->format('%a');$/;"	v
+db	DAO.php	/^    $this->db = $db;$/;"	v
+db	DAO.php	/^  private $db;$/;"	v
+delete	EventDAO.php	/^	public function delete($id){ \/\/ {{{$/;"	f
+delete	UserDAO.php	/^	public function delete($id){$/;"	f
+delete	copyEventDAO.php	/^	public function delete($id){$/;"	f
+diffStartEndEvent	EventDAO.php	/^				$diffStartEndEvent = $event->getEventStart()->diff($event->getEventEnd());$/;"	v
+e	copyEventDAO.php	/^					$e = new \\DateTime($event['event_date_end_rec'].' 23:59:59');$/;"	v
+e	test.php	/^										$e = $this->makeEvent($event, $strt, $intervalBetweenStartEndEvent);$/;"	v
+e	test.php	/^								$e = $this->makeEvent($event, $nextStartEvent, $intervalBetweenStartEndEvent);$/;"	v
+end	copyEventDAO.php	/^		$end = $Date->add(new \\DateInterval('P1M15D'))->format('Y-m-d');$/;"	v
+endCalendar	EventDAO.php	/^		$endCalendar = new \\DateTimeImmutable($end);$/;"	v
+endCalendar	test.php	/^					$endCalendar = new \\DateTimeImmutable($end);$/;"	v
+endEvent	test.php	/^					$endEvent = new \\DateTimeImmutable($event['date_end']);$/;"	v
+endRecExclude	test.php	/^							$endRecExclude = $endCalendar;$/;"	v
+endRecExclude	test.php	/^						} else { $endRecExclude = $date_end_rec; }$/;"	v
+endRecExclude	test.php	/^					} else { $endRecExclude = $endCalendar; }$/;"	v
+endRecInclude	test.php	/^					$endRecInclude = $endRecExclude->add($oneDayInterval); \/\/ On ajoute 1 jour pour inclure le dernier jour$/;"	v
+entities	UserDAO.php	/^		$entities = array();$/;"	v
+error	EventDAO.php	/^            $error = array($/;"	v
+errors	EventDAO.php	/^        $errors = array();$/;"	v
+ev	copyEventDAO.php	/^							$ev = $event;$/;"	v
+ev	copyEventDAO.php	/^						$ev = $event;$/;"	v
+ev	test.php	/^						$ev = $this->makeEvent ($event, $occurence, $intervalBetweenStartEndEvent);$/;"	v
+event	EventDAO.php	/^        $event = new Event();$/;"	v
+event	copyEventDAO.php	/^		$event = new Event();$/;"	v
+eventData	copyEventDAO.php	/^		$eventData = array($/;"	v
+eventDayRec	EventDAO.php	/^									$eventDayRec = explode(',',$event->getEventDayRec());$/;"	v
+eventInterval	EventDAO.php	/^							$eventInterval = (int) $event->getEventInterval();$/;"	v
+eventRec	copyEventDAO.php	/^		$eventRec = array();$/;"	v
+eventRec	test.php	/^			$eventRec = array();$/;"	v
+eventStartDay	EventDAO.php	/^							$eventStartDay = (int) $event->getEventStart()->format('N');$/;"	v
+events	EventDAO.php	/^			$events = array();$/;"	v
+events	EventDAO.php	/^		$events = $this->getDb()->fetchAll($sql);$/;"	v
+events	EventDAO.php	/^		} else { $events = null;}$/;"	v
+events	copyEventDAO.php	/^		$events = $statement->fetchAll();$/;"	v
+events	copyEventDAO.php	/^		$events = $this->getDb()->fetchAll($sql);$/;"	v
+find	EventDAO.php	/^	public function find($start, $end){ \/\/ {{{$/;"	f
+find	UserDAO.php	/^	public function find($id) {$/;"	f
+find	copyEventDAO.php	/^	public function find($date){$/;"	f
+findAll	EventDAO.php	/^	public function findAll() { \/\/ {{{$/;"	f
+findAll	UserDAO.php	/^	public function findAll(){$/;"	f
+findAll	copyEventDAO.php	/^	public function findAll() {$/;"	f
+findByDate	copyEventDAO.php	/^	public function findByDate ($date) {$/;"	f
+firstRecurenceId	EventDAO.php	/^									$firstRecurenceId = floor($daysDiffNumber\/(7*$eventInterval))*count($eventDayRec)+2+$dayMore +1;$/;"	v
+firstRecurenceId	EventDAO.php	/^									$firstRecurenceId = floor(($daysDiffNumber \/ $eventInterval) +1);$/;"	v
+firstRecurenceId	EventDAO.php	/^							$firstRecurenceId = $daysDiffNumber + 1;$/;"	v
+firstRecurenceId	EventDAO.php	/^							$firstRecurenceId = $daysDiffNumber - (floor($daysDiffNumber\/7)) * 2;$/;"	v
+format	copyEventDAO.php	/^			$format = 'd\/m\/Y H:i:s';$/;"	v
+getDb	DAO.php	/^  protected function getDb() {$/;"	f
+id	UserDAO.php	/^			$id = $row['usr_id'];$/;"	v
+id	UserDAO.php	/^			$id = $this->getDb()->lastInsertId();$/;"	v
+id	copyEventDAO.php	/^			$id = $this->getDb()->lastInsertId();$/;"	v
+idRec	copyEventDAO.php	/^					$idRec = 1;$/;"	v
+interval	copyEventDAO.php	/^						$interval = 'P'.$event['event_interval'].$rec;$/;"	v
+interval	copyEventDAO.php	/^					} else { $interval = 'P1D'; }$/;"	v
+intervalBetweenStartEndEvent	test.php	/^					$intervalBetweenStartEndEvent = new \\DateInterval('P'.$startEvent->diff($endEvent)->format('%a').'D');$/;"	v
+intervalOccurence	EventDAO.php	/^						$intervalOccurence = new \\DateInterval('P'.$event->getEventInterval().$rec);$/;"	v
+lastModif	copyEventDAO.php	/^			$lastModif = new \\DateTime();$/;"	v
+lastOccurenceInterval	EventDAO.php	/^									$lastOccurenceInterval = floor($daysDiffNumber \/ $eventInterval) * $eventInterval;$/;"	v
+lastOccurenceInterval	EventDAO.php	/^									$lastOccurenceInterval = floor($daysDiffNumber \/ (7 * $eventInterval)) * $eventInterval;$/;"	v
+loadUserByUsername	UserDAO.php	/^	public function loadUserByUsername($username) {$/;"	f
+nextStartEvent	test.php	/^							$nextStartEvent = $nextStartEvent->add($oneDayInterval);$/;"	v
+nextStartEvent	test.php	/^						$nextStartEvent = $nextStartEvent->add($oneDayInterval);$/;"	v
+nextStartEvent	test.php	/^					$nextStartEvent = $startEvent->add($dateInterval); \/\/ On saute la première occurence pour ne pas la répéter$/;"	v
+nextStartEvent	test.php	/^					$nextStartEvent = new \\DateTimeImmutable($startEvent->format('Y-m-d'));$/;"	v
+occurenceEnd	EventDAO.php	/^									$occurenceEnd = new \\DateTime($occurence->format('Y-m-d'));$/;"	v
+occurences	EventDAO.php	/^						$occurences = array();$/;"	v
+oneDayInterval	test.php	/^					$oneDayInterval = new \\dateInterval('P1D');$/;"	v
+param	EventDAO.php	/^		$param = array('start' => $start,'end' => $end);$/;"	v
+param	copyEventDAO.php	/^		$param = array($/;"	v
+param	copyEventDAO.php	/^		$param = array('start' => $start,'end' => $end);$/;"	v
+period	EventDAO.php	/^								$period = new \\DatePeriod($startPeriod, $intervalOccurence, $dateEndRecInclude);$/;"	v
+period	EventDAO.php	/^							$period = new \\DatePeriod($startPeriod, $intervalOccurence, $dateEndRecInclude);$/;"	v
+period	test.php	/^					$period = new \\DatePeriod($nextStartEvent, $dateInterval, $endRecExclude);  \/\/ On récupère toutes les occurences$/;"	v
+query	EventDAO.php	/^		$query = $this->getDb()->executeQuery($sql,$param);$/;"	v
+rec	EventDAO.php	/^										if ($rec === 'M' || $rec === 'Y') {$/;"	v
+rec	EventDAO.php	/^							if ($rec === 'D' || $rec === 'W') {$/;"	v
+rec	EventDAO.php	/^							} else if ($rec === 'M' || $rec === 'Y') {$/;"	v
+rec	EventDAO.php	/^					$rec = $event->getEventRecurence();$/;"	v
+rec	EventDAO.php	/^					if ($rec === 'allDaysOfWeek' || $rec === 'workingDays') {$/;"	v
+rec	EventDAO.php	/^			$rec = $row['event_recurence'];$/;"	v
+rec	EventDAO.php	/^			if ($rec == 'Y' || $rec == 'D' || $rec == 'M' || $rec == 'W') {$/;"	v
+rec	copyEventDAO.php	/^							if ($dateStart->format('N') == 7 && $rec == 'W') {$/;"	v
+rec	copyEventDAO.php	/^						if ($dateS->format('N') == 7 && $rec == 'W') {$/;"	v
+rec	copyEventDAO.php	/^					$rec = $event['event_recurence'];$/;"	v
+rec	copyEventDAO.php	/^					if ($rec == 'D' || $rec == 'M' || $rec == 'Y') {$/;"	v
+rec	copyEventDAO.php	/^				$rec = $event['event_recurence'];$/;"	v
+rec	test.php	/^					$rec = $event['event_recurence'];   \/\/ recurence (W ou Y ou D ou M ou workingDays ou allDaysOfWeek)$/;"	v
+rec	test.php	/^					if ($nextStartEvent->format('N') != 7 && $rec == 'W') {$/;"	v
+rec	test.php	/^					if ($rec == 'D' || $rec == 'M' || $rec == 'Y' || $rec == 'W') { \/\/ Définit l'argument de DateInterval()$/;"	v
+recurenceId	EventDAO.php	/^						$recurenceId = array();$/;"	v
+refreshUser	UserDAO.php	/^	public function refreshUser(UserInterface $user)$/;"	f
+res	EventDAO.php	/^			$res = array();$/;"	v
+res	EventDAO.php	/^		$res = $query->fetchAll();$/;"	v
+res	EventDAO.php	/^        $res = array();$/;"	v
+responseData	EventDAO.php	/^		$responseData = array();$/;"	v
+responseData	copyEventDAO.php	/^			$responseData = array();$/;"	v
+responseData	copyEventDAO.php	/^		$responseData = array();$/;"	v
+responseData	copyEventDAO.php	/^		} else { $responseData = null; }$/;"	v
+responseData	copyEventDAO.php	/^		} else { $responseData = null;}$/;"	v
+result	UserDAO.php	/^		$result = $this->getDb()->fetchAll($sql);$/;"	v
+row	UserDAO.php	/^		$row = $this->getDb()->fetchAssoc($sql, array($id));$/;"	v
+row	UserDAO.php	/^		$row = $this->getDb()->fetchAssoc($sql, array($username));$/;"	v
+save	EventDAO.php	/^	public function save(array $event) { \/\/ {{{$/;"	f
+save	UserDAO.php	/^	public function save(User $user) {$/;"	f
+save	copyEventDAO.php	/^	public function save(Event $event) {$/;"	f
+sql	EventDAO.php	/^		$sql = "SELECT * from event WHERE (event_start BETWEEN :start AND :end)$/;"	v
+sql	EventDAO.php	/^		$sql = "select * from event";$/;"	v
+sql	UserDAO.php	/^		$sql = "select * from Utilisateurs order by usr_role, usr_name";$/;"	v
+sql	UserDAO.php	/^		$sql = "select * from Utilisateurs where usr_id=?";$/;"	v
+sql	UserDAO.php	/^		$sql = "select * from Utilisateurs where usr_name=?";$/;"	v
+sql	copyEventDAO.php	/^		$sql = "SELECT * FROM event WHERE$/;"	v
+sql	copyEventDAO.php	/^		$sql = "SELECT * from event WHERE (event_start BETWEEN :start AND :end)$/;"	v
+sql	copyEventDAO.php	/^		$sql = "select * from event";$/;"	v
+start	copyEventDAO.php	/^		$start = $Date->sub(new \\DateInterval('P10D'))->format('Y-m-d');$/;"	v
+startCalendar	EventDAO.php	/^		$startCalendar = new \\DateTimeImmutable($start);    \/\/ début et fin du calendrier affiché$/;"	v
+startCalendar	test.php	/^					$startCalendar = new \\DateTimeImmutable($start);    \/\/ début et fin du calendrier affiché$/;"	v
+startEvent	test.php	/^					$startEvent = new \\DateTimeImmutable($event['date_start']);   \/\/ date de début et de fin de l'évenement$/;"	v
+startPeriod	EventDAO.php	/^								$startPeriod = $event->getEventStart()->add(new \\DateInterval('P'.$lastOccurenceInterval.$rec));$/;"	v
+startPeriod	EventDAO.php	/^								$startPeriod = $event->getEventStart();$/;"	v
+startPeriod	EventDAO.php	/^							$startPeriod = $event->getEventStart();$/;"	v
+statement	copyEventDAO.php	/^		$statement = $this->getDb()->executeQuery($sql,$param);$/;"	v
+strt	test.php	/^									$strt = $strt->add($oneDayInterval);$/;"	v
+strt	test.php	/^							$strt = new \\DateTimeImmutable($occurence->format('Y-m-d'));$/;"	v
+supportsClass	UserDAO.php	/^	public function supportsClass($class)$/;"	f
+user	UserDAO.php	/^		$user = new User();$/;"	v
+userData	UserDAO.php	/^		$userData = array($/;"	v

@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Administration lesitedelassurance</title>
+    <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}" type="text/css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="{{ asset('lib/bootstrap-4.0.0-beta-dist/css/bootstrap.min.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/admin/style.css') }}" type="text/css" >
+  </head>
+    <body>
+      <div class="pos-f-t">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a href="{{ path('courtalia')}}" class="logo">
+            <div id="logo_du_site" class="mr-3">
+                <span>l</span>e<span>s</span>ite<span>d</span>e<span>l</span><span>a</span>ssurance 
+            </div>
+          </a>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+              <li class="nav-item" hidden>
+                <a class="nav-link page_button" href="#" data-page="Planning">Planning</a>
+              </li>
+              <li class="nav-item">
+                <a id="rdv_page_button" class="nav-link page_button" href="#" data-page="RDV">Rendez-vous</a>
+              </li>
+              <li class="nav-item">
+                <a id="devis_page_button" class="nav-link page_button" href="#" data-page="DEVIS">Devis</a>
+              </li>
+              <li class="nav-item dropdown active">
+                <a id="calendar_button" class="nav-link dropdown-toggle page_button active" data-page="Calendar" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Calendrier
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item change_calendar_button" href="#" data-calendar="monthCalendar">Mois</a>
+                  <a class="dropdown-item change_calendar_button" href="#" data-calendar="weekCalendar">Semaine</a>
+                  <a class="dropdown-item change_calendar_button" href="#" data-calendar="daysCalendar">4 Jours</a>
+                  <a class="dropdown-item change_calendar_button" href="#" data-calendar="dayCalendar">1 Jour</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a id="users_button" class="nav-link dropdown-toggle page_button" data-page="Utilisateurs" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Utilisateurs
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item users_page_button" href="#" data-usertype="1" data-action="usersList">Administrateurs</a>
+                  <a class="dropdown-item users_page_button" href="#" data-usertype="2" data-action="usersList">Partenaires</a>
+                  <a class="dropdown-item users_page_button" href="#" data-action="addUser">Ajouter un utilisateur</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Mon compte
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="{{ path('change_password')}}">Changer mon mot de passe</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      {# Affiche les informations des devis #}
+      <div id="devis_data" class="container" hidden>
+
+        <h1 class="my-4">Les Devis</h1>
+        <hr class="my-4">
+        <form id="devis_list_form" action="#" method="post" accept-charset="utf-8">
+          <div id="devis_delete" hidden>
+            <div class="form-group">
+              <button type="submit" class="btn btn-outline-primary btn-lg btn-block">Supprimer Les Devis Sélectionnés</button>
+            </div>
+          </div>
+          <nav id="devis_pagination_top" aria-label="Page navigation example" hidden>
+            <ul class="pagination justify-content-end">
+              <li class="page-item">
+                <a class="pagination_previous page-link" href="#">Previous</a>
+              </li>
+              <li class="page-item pagination_nb active"><a class="page-link" href="#" data-page="1">1</a></li>
+              <li class="page-item pagination_nb"><a class="page-link" href="#" data-page="2">2</a></li>
+              <li class="page-item pagination_nb"><a class="page-link" href="#" data-page="3">3</a></li>
+              <li class="page-item">
+                <a class="pagination_next page-link" href="#">Next</a>
+              </li>
+            </ul>
+          </nav>
+          <div id="devis_accordion" role="tablist"> </div>
+        </form>
+        <nav id="devis_pagination_bottom" class="my-5" aria-label="Page navigation example" hidden>
+          <ul class="pagination justify-content-end">
+            <li class="page-item">
+              <a class="pagination_previous page-link" href="#">Previous</a>
+            </li>
+            <li class="page-item pagination_nb active"><a class="page-link" href="#" data-page="1">1</a></li>
+            <li class="page-item pagination_nb"><a class="page-link" href="#" data-page="2">2</a></li>
+            <li class="page-item pagination_nb"><a class="page-link" href="#" data-page="3">3</a></li>
+            <li class="page-item">
+              <a class="page-link pagination_next" href="#">Next</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div id="debbug" class="alert alert-danger hide text-center"> </div>
+      {#               Affiche un message d'erreur          #}
+      <div id="error_message" class="alert alert-danger hide text-center" role="alert"></div>
+      {#          Affiche un message de succès              #}
+      <div id="success_message" class="alert alert-success hide text-center" role="alert"> </div>
+      {#     Gestion des utilisateurs                   #}
+      <div id="users" hidden>
+        <h1 class="my-3"></h1>
+        <hr class="my-3">
+        <div id="users_list" hidden> </div>
+        <div id="user_add_form" class="my-5" hidden>
+          {#                Formulaire d'ajout d'utilisateurs         #}
+          <form action="#" method="post" accept-charset="utf-8" class="container">
+            <div class="form-group">
+              <label for="user_name">Nom De l'Utilisateur</label>
+              <input type="text" class="form-control" id="user_name" name="user_name" placeholder="Nom de l'utilisateur" required>
+            </div>
+            <div class="form-group">
+              <label for="user_first_name">Prénom De l'Utilisateur</label>
+              <input type="text" class="form-control" name="user_first_name" id="user_first_name" placeholder="Prénom de l'utilisateur" required>
+            </div>
+            <div class="form-group">
+              <label for="role">Rôle De l'Utilisateur</label>
+              <select name="role" class="form-control" id="role">
+                <option value="1">Administrateur</option>
+                <option value="2" selected>Partenaire</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="user_tel">Numéro De Téléphone De l'Utilisateur</label>
+              <input type="text" name="tel" class="form-control" id="user_tel" placeholder="Téléphone De l'Utilisateur" required>
+            </div>
+            <div class="form-group">
+              <label for="user_email">E-mail De l'Utilisateur</label>
+              <input type="email" name="mail" class="form-control" id="user_email" placeholder="E-mail De l'Utilisateur" required>
+            </div>
+            <div class="form-group">
+              <label for="user_email2">Confirmer L'E-mail De l'Utilisateur</label>
+              <input type="email" name="mail2" class="form-control" id="user_email2" placeholder="E-mail De l'Utilisateur" required>
+            </div>
+            <div class="form-group">
+              <label for="user_address">Adresse De l'Utilisateur</label>
+              <input type="text" class="form-control" name="address" id="user_address" placeholder="Adresse De l'Utilisateur" required>
+            </div>
+            <div class="form-group">
+              <label for="user_city">Ville</label>
+              <input type="text" class="form-control" id="user_city" name="city" placeholder="Ville" required>
+            </div>
+            <div class="form-group">
+              <label for="user_code_postal">Code Postal</label>
+              <input type="text" class="form-control" id="user_code_postal" name="code_postal" placeholder="Code Postal" required>
+            </div>
+            <div class="form-group">
+              <label for="user_password">Mot De Passe De l'Utilisateur</label>
+              <input type="password" class="form-control" id="user_password" name="password" placeholder="Mot De Passe De l'Utilisateur">
+              <small id="emailHelp" class="form-text text-muted">Si vous ne remplissez pas ce champs, un mot de passe généré automatiquement sera envoyé à l'utilisateur <span class="text-success"> (recommandé) </span> </small>
+            </div>
+            <div class="form-group">
+              <label for="user_password2">Confirmer Le Mot De Passe De l'Utilisateur</label>
+              <input type="password" class="form-control" id="user_password2" name="password2" placeholder="Mot De Passe De l'Utilisateur">
+            </div>
+            <div id="add_user_confirm" hidden>
+              <h2 class="bg-danger text-white p-3">Confirmation</h2>
+              <div id="add_user_confirm_message" class="p-3">
+                Vous êtes sur le point de créer un compte "Administrateur" qui aurra les mêmes droits que vous
+              </div>
+              <div class="form-group p-3">
+                <input class="form-control" type="password" name="password_confirmation" id="password_confirmation" placeholder="Votre Mot De Passe" />
+              </div>
+              <hr>
+              <div class="form-group p-3 text-right">
+                <button id="add_user_confirm_button" type="button" class="btn btn-outline-primary">Confirmer</button>
+                <button id="add_user_confirm_annul_button" type="button" class="btn btn-outline-danger">Annuler</button>
+              </div>
+            </div>
+            <hr class="my-5">
+            <div class="form-group my-5">
+              <button type="submit" class="btn btn-outline-primary btn-lg btn-block">Enregistrer</button>
+            </div>
+            <div id="user_add_form_error" class="alert alert-danger text-center hide" role="alert" hidden> </div>
+            <div id="user_add_form_success" class="alert alert-success text-center hide" role="alert" hidden></div>
+          </form>
+        </div>
+      </div>
+      <div id="planning" hidden>
+        <h1>Planning</h1> 
+      </div>
+      <div id="rdv" class="container" hidden> 
+        <h1 class="my-4">Les Rendez-Vous</h1>
+        <hr class="my-4">
+        <div id="rdv_sold"> </div>
+        <form id="rdv_list_form" action="#" method="post" accept-charset="utf-8">
+          <div id="rdv_status" hidden>
+            <div class="form-group">
+              <button type="submit" class="btn btn-outline-primary btn-lg btn-block">Modifier le status du RDV</button>
+            </div>
+            <div class="form-group">
+              <select class="form-control" name="rdv_status">
+                <option value="1">À venir</option>
+                <option value="2">Annulé</option>
+                <option value="3">À payer</option>
+                <option value="4">Payé</option>
+                <option value="5">Sans issue</option>
+              </select>
+            </div>
+          </div>
+          <nav id="pagination_top" aria-label="Page navigation example" hidden>
+            <ul class="pagination justify-content-end">
+              <li class="page-item">
+                <a class="pagination_previous page-link" href="#">Previous</a>
+              </li>
+              <li class="page-item pagination_nb active"><a class="page-link" href="#" data-page="1">1</a></li>
+              <li class="page-item pagination_nb"><a class="page-link" href="#" data-page="2">2</a></li>
+              <li class="page-item pagination_nb"><a class="page-link" href="#" data-page="3">3</a></li>
+              <li class="page-item">
+                <a class="pagination_next page-link" href="#">Next</a>
+              </li>
+            </ul>
+          </nav>
+          <div id="rdv_list"> </div>
+        </form>
+        <nav id="pagination_bottom" aria-label="Page navigation example" hidden>
+          <ul class="pagination justify-content-end">
+            <li class="page-item">
+              <a class="pagination_previous page-link" href="#">Previous</a>
+            </li>
+            <li class="page-item pagination_nb active"><a class="page-link" href="#" data-page="1">1</a></li>
+            <li class="page-item pagination_nb"><a class="page-link" href="#" data-page="2">2</a></li>
+            <li class="page-item pagination_nb"><a class="page-link" href="#" data-page="3">3</a></li>
+            <li class="page-item">
+              <a class="page-link pagination_next" href="#">Next</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div id="cover" hidden> </div>
+      <div id="alertConfirm" hidden>
+        <h1 class="bg-dark text-white p-3">Confirmation</h1>
+        <div id="alertMessage" class="px-3 py-2 lead">
+          Voulez-vous vraiment exécuter cet action ?
+        </div>
+        <hr>
+        <div class="block px-3 text-right py-3" id="bloc_btn">
+          <button id="confirm" class="btn btn-outline-primary">Confirmer</button>
+          <button id="annul" type="button" class="btn btn-outline-danger">Annuler</button>
+        </div>
+      </div>
+      <div id="calendar" hidden>
+        <div id="calendar_nav" class="flex bg-dark p-3">
+          <em><div class="bg-dark date_to_string"></div></em>
+          <div id="current_date"> </div>
+          <div>
+            <span id="previous_button" data-action="goToPrevious">
+              <i class="fa fa-chevron-left" aria-hidden="true"></i>
+            </span>
+            <span id="next_button" data-action="goToNext">
+              <i class="fa fa-chevron-right" aria-hidden="true"></i>
+            </span>
+          </div>
+        </div>
+        <div class="calendar" id="month">
+          <table>
+            <tr>
+              <th class="th th-month">L<span class="d-none d-sm-inline">un</span></th>
+              <th class="th th-month">M<span class="d-none d-sm-inline">ar</span></th>
+              <th class="th th-month">M<span class="d-none d-sm-inline">er</span></th>
+              <th class="th th-month">J<span class="d-none d-sm-inline">eu</span></th>
+              <th class="th th-month">V<span class="d-none d-sm-inline">en</span></th>
+              <th class="th th-month">S<span class="d-none d-sm-inline">am</span></th>
+              <th class="th th-month">D<span class="d-none d-sm-inline">im</span></th>
+            </tr>
+            {% for i in 0..5 %}
+            <tr data-trnbs="{{ i }}">
+              {% for j in 1..7 %}
+              <td data-weekDay="{{ j }}" data-calendar="month" data-tdnbs="{{ j-1 + (i*7) }}">
+                <div class="tdMonth"></div>
+                <div class="eventMonth divEvents"></div>
+                <div class="countEvent" hidden> </div>
+              </td>
+              {% endfor %}
+            </tr>
+            {% endfor %}
+          </table>
+        </div>
+        <div class="calendar" hidden id="week">
+          <table>
+            <tr>
+              <th class="white"></th>
+              <th class="th th-month">L<span class="d-none d-sm-inline">un <span class="date">  </span></span></th>
+              <th class="th th-month">M<span class="d-none d-sm-inline">ar <span class="date">  </span></span></th>
+              <th class="th th-month">M<span class="d-none d-sm-inline">er <span class="date">  </span></span></th>
+              <th class="th th-month">J<span class="d-none d-sm-inline">eu <span class="date">  </span></span></th>
+              <th class="th th-month">V<span class="d-none d-sm-inline">en <span class="date">  </span></span></th>
+              <th class="th th-month">S<span class="d-none d-sm-inline">am <span class="date">  </span></span></th>
+              <th class="th th-month">D<span class="d-none d-sm-inline">im <span class="date">  </span></span></th>
+            </tr>
+            {% for i in 0..23 %}
+            <tr>
+              <td class="hours" >{{ i }}</td>
+              {% for j in 1..7 %}
+              <td class="tdWeek" data-column="{{ j }}" data-hour="{{ i }}" data-calendar="week">
+                <div class="event_title"> </div>
+                <div class="eventWeek divEvents"></div>
+              </td>
+              {% endfor %}
+            </tr>
+            {% endfor %}
+          </table>
+        </div>
+        <div class="calendar" hidden id="days">
+          <table>
+            <tr>
+              <th class="white"></th>
+              {% for i in 1..4 %}
+              <th class="th th-days">test</th>
+              {% endfor %}
+            </tr>
+            {% for i in 0..23 %}
+            <tr>
+              <td class="hours">{{ i }}h</td>
+              {% for j in 1..4 %}
+              <td class="tdDays" data-hour="{{ i }}" data-calendar="days" data-column="{{ j }}">
+                <div class="event_title"> </div>
+                <div class="eventDays divEvents"></div>
+              </td>
+              {% endfor %}
+            </tr>
+            {% endfor %}
+          </table>
+        </div>
+        <div class="calendar" hidden id="day">
+          <table>
+            <tr>
+              <th class="white"></th>
+              <th class="th th-day currentDate"></th>
+            </tr>
+            {% for i in 0..23 %}
+            <tr>
+              <td class="hours">{{ i }}h</td>
+              <td class="tdDay" data-hour="{{ i }}" data-calendar="day">
+                <div class="event_title"> </div>
+                <div class="eventDay divEvents"></div>
+              </td>
+            </tr>
+            {% endfor %}
+          </table>
+        </div>
+        <div id="events" class="container jumbotron mt-5" hidden>
+          <h2>Les évenements du jour</h2>
+          <hr>
+          <div id="list" hidden>
+          </div>
+          <div class="block" id="bloc_btn">
+            <hr>
+            <button id="eventFormButton" class="btn btn-outline-primary">Ajouter un évenement</button>
+            <button id="return_to_calendar_button" type="button" class="btn btn-outline-secondary">Retour au calendrier</button>
+          </div>
+          <div id="eventDetails" hidden>
+            <div>
+              <strong>Utilisateur : </strong><span class="user"></span>
+            </div>
+            <div>
+              <strong>Role : </strong><span class="role"></span>
+            </div>
+            <div>
+              <strong><span class="eventTitle">  </span></strong>
+            </div>
+            <hr>
+            <div>
+              <strong> Date :  </strong><span class="eventDate">  </span>
+            </div>
+            <div>
+              <strong> Heure :  </strong><span class="hour">  </span>
+            </div>
+            <div>
+              <strong>Date de création : </strong><span class="createdDate"></span>
+            </div>
+            <div class="modif" hidden>
+              <strong>Dernière modification : </strong><span class="lastModif"></span>
+            </div>
+            <div>
+              <strong> Récurence :  </strong><span class="recurence"></span>
+            </div>
+            <div>
+              <strong><span class="available">  </span></strong>
+            </div>
+            <div>
+              <strong>Visibilité : </strong><span class="visibility"></span>
+            </div>
+            <div>
+              <strong>Catégorie : </strong><span class="eventCategory">  </span>
+            </div>
+            <div>
+              <strong>Commentaire : </strong><p class="eventComment"></p>
+            </div>
+            <hr>
+            <div class="block_bnt">
+              <button id="editEvent" class="btn btn-outline-primary">Modifier</button>
+              <button id="deleteEvent" class="btn btn-outline-danger">Supprimer</button>
+              <hr>
+              <button id="return_to_event_list" type="button" class="btn btn-outline-secondary">Retour à la liste des évenements</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="event_form" class="jumbotron container mt-5" hidden>
+          <h1 class="font-weight-bold">Ajouter un événement</h1>
+          <div id="form_error" class="alert alert-danger" hidden> </div>
+          <form id="add_event_form" action="#" method="post">
+            <div class="form-group">
+              <label for="title" class="font-weight-bold">Titre de l'événement</label>
+              <input type="text" name="title" class="form-control" id="title" placeholder="Titre">
+            </div>
+            <div class="form-group">
+              <label for="comment" class="font-weight-bold">Commentaire</label>
+              <textarea class="form-control" name="comment" id="comment" rows="3"></textarea>
+            </div>
+
+            {% set datefields = 
+            [
+            {
+            'label': 'Date de début',
+            'id': 'start'
+            },{
+
+            'label': 'Date de fin',
+            'id': 'end'
+            }] 
+            %}
+            {% set months = [ 'Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Juin','Juil','Aou','Sept','Oct','Nov','Déc']%}
+
+            {% for datefield in datefields %}
+            <p class="font-weight-bold">{{ datefield.label }}</p>
+            <div id="{{ datefield.id }}" class="d-flex mb-3 w-100 dateBlock">
+              <div class="date d-flex" data-date="{{ datefield.id }}">
+                <select name="{{ datefield.id }}_day" id="{{ datefield.id }}_day" class="form-control" data-action="setDate">
+                  {% for i in 1..31 %}
+                  <option value="{{i}}">{{i}}</option>
+                  {% endfor%}
+                </select>
+                <select name="{{ datefield.id }}_month" id="{{ datefield.id }}_month" class="form-control mx-3" data-action="setMonth">
+                  {% for month in months %}
+                  <option value="{{loop.index}}">{{month}}</option>
+                  {% endfor %}
+                </select>
+                <select name="{{datefield.id}}_year" id="{{datefield.id}}_year" class="form-control" data-action="setFullYear">
+                  {% for i in 2000..2050 %}
+                  <option value="{{i}}">{{i}}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <p class="mx-5">à</p>
+              <div id="{{datefield.id}}_time" class="d-flex" data-date="{{ datefield.id }}">
+                <select name="{{datefield.id}}_hour" id="{{datefield.id}}_hour" class="form-control" data-action="setHours">
+                  {% for i in 0..23 %}
+                  <option value="{{i}}">{{i}}</option>
+                  {% endfor %}
+                </select>
+                <p class="mr-3"> h </p>
+                <select name="{{datefield.id}}_minute" id="{{datefield.id}}_minute" data-action="setMinutes" class="form-control">
+                  {% for i in 0..59 %}
+                  {% if i < 10 %}
+                  {% set i = '0' ~ i %}
+                  {% endif %}
+                  <option value="{{i}}">{{i}}</option>
+                  {% endfor %}
+                </select>
+                <p>min</p>
+              </div>
+            </div>
+            {% endfor %}
+            <div class="form-check">
+              <label class="form-check-label">
+                <input name="allday" data-type="bool" id="allday" class="form-check-input" type="checkbox">
+                Toute la journée
+              </label>
+            </div>
+            <div class="form-check my-3">
+              <label class="form-check-label">
+                <input name="available" id="available" data-type="bool" class="form-check-input" type="checkbox">
+                Plage disponible
+              </label>
+            </div>
+            <div class="form-group my-3">
+              <label for="category" class="font-weight-bold">Catégorie</label>
+              <select name="category_Id" class="form-control" id="category">
+                {% for category in categories %}
+                <option value='{{category.category_Id}}'>{{category.category_name}}</option>
+                {% endfor %}
+              </select>
+
+              <div id="client_infos" hidden>
+                <h2>Informations sur le client</h2>
+                <div class="form-group">
+                  <label>Nom du client</label>
+                  <input class="form-control" type="text" name="client_name" id="client_name"/>
+                </div>
+                <div class="form-group">
+                  <label>Prénom du client</label>
+                  <input class="form-control" type="text" name="client_first_name" id="client_first_name"/>
+                </div>
+                <div class="form-group">
+                  <label>Adresse mail du client</label>
+                  <input class="form-control" type="email" name="client_mail" id="client_mail"/>
+                </div>
+                <div class="form-group">
+                  <label>Téléphone du client</label>
+                  <input class="form-control" type="text" name="client_tel" id="client_tel"/>
+                </div>
+                <div class="form-group"> 
+                  <label for="client_rdv_objet">Objet du RDV</label> 
+                  <select class="form-control" name="client_rdv_object" id="client_rdv_object" required/>
+                    <option value="1">Santé</option>
+                    <option value="2">Habitation</option>
+                    <option value="3">Auto</option>
+                    <option value="4">Assurance prêt</option>
+                    <option value="5">Prévoyance</option>
+                  </select>
+                </div>
+              </div>
+
+            </div>
+            <div class="form-group my-3">
+              <label for="visibility" class="font-weight-bold">Visibilité</label>
+
+              <select class="form-control" id="visibility" name="visibility_Id">
+                {% for visibility in visibilities %}
+                <option value='{{visibility.visibility_Id}}'>{{visibility.visibility_name}}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <div id="block_event_color">
+              <div class="colors flex">
+                <div><strong> Couleur de l'évenement : </strong></div>
+                <div id="selectedColor" class="blue" data-selectedcolor="blue"><i></i></div>
+                <div class="empty"><i></i></div>
+                <div class="color blue change" data-color="blue"><i class="fa fa-check" aria-hidden="true"></i></div>
+                <div class="color green change" data-color="green"><i class="fa fa-check" hidden aria-hidden="true"></i></div>
+                <div class="color red change" data-color="red"><i class="fa fa-check" hidden aria-hidden="true"></i></div>
+                <div class="color grey change" data-color="grey"><i class="fa fa-check" hidden aria-hidden="true"></i></div>
+                <div class="color yellow change" data-color="yellow"><i class="fa fa-check" hidden aria-hidden="true"></i></div>
+                <div class="color maroon change" data-color="maroon"><i class="fa fa-check" hidden aria-hidden="true"></i></div>
+              </div>
+            </div>
+            <div class="form-group my-4">
+              <label for="recurrence"><strong>Récurence</strong></label>
+              <select class="form-control" id="recurrence" name="recurrence">
+                <option value="1">Aucune</option>
+                <option value="2">Tous les jours</option>
+                <option value="3">Toutes les semaines</option>
+                <option value="4">Tous les jours de la semaine</option>
+                <option value="5">Les jours ouvrables</option>
+                <option value="6">Tous les mois </option>
+                <option value="7">Tous les ans</option>
+              </select>
+            </div>
+            <div id="intervalBlock" class="form-inline my-4 recurrenceElt" hidden>
+              <label id="intervalBefore" for="recurrence">Tous les </label>
+              <select class="form-control mx-3" id="interval" name="event_interval">
+                {% for i in 1..20 %}
+                <option value="{{i}}">{{i}}</option>
+                {% endfor %}
+              </select>
+              <span id="intervalAfter">jour(s)</span>
+
+            </div>
+            <div id="weekDaysBlock" class="recurrenceElt" hidden>
+              <div class="form-check form-check-inline">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" id="1" value="1" name="days_rec[]"> Lun
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" id="2" value="2" name="days_rec[]"> Mar
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" id="3" value="3" name="days_rec[]"> Mer
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" id="4" value="4" name="days_rec[]"> Jeu
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" id="5" value="5" name="days_rec[]"> Ven
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" id="6" value="6" name="days_rec[]"> Sam
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" id="7" value="7" name="days_rec[]"> Dim
+                </label>
+              </div>
+            </div>
+            <div id="recurrenceEndBlock" class="recurrenceElt" hidden>
+              <p class="font-weight-bold">Fin de la récurence</p>
+              <div class="form-check">
+                <label for="never" class="form-check-label">
+                  <input class="form-check-input" type="radio" name="end_rec_type" id="never" value="1" checked>
+                  Jamais
+                </label>
+              </div>
+              <div class="form-check form-inline my-3">
+                <label for="afterNbRadio" class="form-check-label">
+                  <input class="form-check-input" type="radio" name="end_rec_type" id="afterNbRadio" value="2">
+                  Après
+                  <select class="form-control mx-3" id="afterNbSelect" name="number_repetitions">
+                    {% for i in 1..30 %}
+                    <option value="{{i}}">{{i}}</option>
+                    {% endfor %}
+                  </select>
+                  répétitions
+                </label>
+              </div>
+              <div class="form-check d-flex my-3">
+                <label for="toDate" class="form-check-label d-flex w-100">
+                  <input class="form-check-input" type="radio" name="end_rec_type" id="toDateRadio" value="3">
+                  Le
+                  <div id="endRec" class="d-flex mb-3 w-100 dateBlock" data-date="endRec">
+                    <select class="form-control" name="endRec_day" data-action="setDate">
+                      {% for i in 1..31 %}
+                      <option value="{{i}}">{{i}}</option>
+                      {% endfor%}
+                    </select>
+                    <select class="form-control mx-3" name="endRec_month" data-action="setMonth">
+                      {% for month in months %}
+                      <option value="{{loop.index}}">{{month}}</option>
+                      {% endfor %}
+                    </select>
+                    <select class="form-control" name="endRec_year" data-action="setFullYear">
+                      {% for i in 2000..2050 %}
+                      <option value="{{i}}">{{i}}</option>
+                      {% endfor %}
+                    </select>
+                  </div>
+                </label>
+              </div>
+            </div>
+            <div id="resume" class="my-3">
+              <strong>Résumé : </strong> 
+            </div>
+            <div class="block" id="bloc_btn">
+              <button id="saveEvent" class="btn btn-outline-primary">Enregistrer</button>
+              <button id="returnToEventsList" type="button" class="btn btn-outline-secondary">Retour aux événements</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="{{ asset('js/dist/polyfill.min.js') }}"></script>
+      <script src="{{ asset('js/dist/courtaliaAdmin.js') }}"></script>
+    </body>
+</html>

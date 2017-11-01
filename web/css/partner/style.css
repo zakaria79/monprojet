@@ -1,0 +1,140 @@
+nav .name {
+  color: grey;
+}
+h1 {
+  margin-top: 1rem;
+}
+.flex {
+  display: flex;
+}
+.space-between {
+  justify-content: space-between;
+}
+.rdv_info {
+  cursor: pointer;
+}
+.rdv_info .title {
+  transition: 0.2s;
+}
+.rdv_info .alert {
+  transition: 0.2s;
+}
+.rdv_details {
+  transition: 0.3s;
+  height: 7rem;
+}
+.rdv_details div {
+  transition: 0.3s;
+}
+.hide_collapse div {
+  opacity: 0;
+}
+.pagination_nb .active {
+  background: rgb(88, 85, 85);
+  color: white;
+}
+.hide_collapse {
+  height: 0;
+  visibility: hidden;
+}
+
+.rdv_info:hover .alert {
+    background-color: rgb(250, 252, 255);
+}
+.rdv_info:hover .title {
+  padding-left: 1rem;
+}
+.hide {
+    opacity: 0;
+}
+#reporting, #calendar{
+  transition: 0.2s;
+}
+#reporting {
+}
+#calendar {
+  margin: 2rem 0;
+}
+#arrows i {
+  cursor: pointer;
+  padding: 0.5rem 1.5rem;
+}
+#list {
+  box-shadow: 0px 0px 5px 2px rgb(187, 183, 183);
+}
+.today {
+  background: rgb(177, 196, 228);
+}
+#today {
+  color: rgb(230, 62, 62);
+}
+th {
+  text-align: center;
+}
+/*
+ * pour inverser les couleurs du calendrier
+table {
+  background: rgb(244, 67, 54);
+}
+.available {
+  background: white;
+  cursor: pointer;
+}
+ * */
+table {
+  background: rgb(244, 67, 54);
+  background: white;
+}
+.available {
+  background: rgb(244, 67, 54);
+  cursor: pointer;
+
+  border-top: 0.01rem solid white;
+  border-bottom: 0.01rem solid rgb(202, 100, 100);
+  border-left: 0.01rem solid white;
+  border-right: 0.01rem solid rgb(202, 100, 100);
+}
+.available:hover {
+  background: rgb(247, 106, 95);
+}
+#calendar tr:hover {
+  background: rgb(245, 240, 240);
+}
+#error_message {
+  position: fixed;
+  bottom: 0;
+  right: 5rem;
+  left: 5rem;
+  transition: 1s;
+}
+#list > div {
+  padding: 0.5rem;
+  transition: 0.2s;
+  cursor: pointer;
+}
+#list > div:hover {
+  background: rgb(234, 231, 231);
+  padding-left: 1rem;
+}
+table {
+  width: 100%;
+  box-shadow: 0 0 2px 2px grey;
+}
+#current_date:hover, #arrows i:hover {
+    background: rgb(220, 219, 219);
+    border-radius: 0.2rem;
+}
+#current_date {
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+}
+th {
+  background-color: rgb(52, 58, 64);
+  color: rgb(187, 186, 186);
+  width: 12.5%;
+}
+td {
+  border-left: 0.01rem solid rgb(243, 235, 235);
+  border-top: 0.01rem solid rgb(243, 235, 235);
+  padding: 0.5rem;
+}

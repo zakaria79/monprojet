@@ -1,0 +1,130 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+Action	App/Action.js	/^var Action = function (app) {$/;"	c
+Action	calendar/Calendar.js	/^Calendar.prototype.Action = function(e) {$/;"	m	class:Calendar
+App	App/App.js	/^var App = function () {$/;"	c
+Calendar	calendar/Calendar.js	/^var Calendar = function (app) {$/;"	c
+D	App/App.js	/^        null: false,$/;"	p	class:App.recurence
+DayCalendar	calendar/DayCalendar.js	/^var DayCalendar = function (app) {$/;"	c
+DaysCalendar	calendar/DayCalendar.js	/^}$/;"	c
+DaysCalendar	calendar/DaysCalendar.js	/^var DaysCalendar = function (app) {$/;"	c
+E	App/App.js	/^	this.E = function (elt) {$/;"	m	class:App
+Event	Event/Event.js	/^var Event = function (event) {$/;"	c
+EventManager	Event/EventManager.js	/^var EventManager = function (app) {$/;"	c
+Form	Form/Form.js	/^var Form = function (app) {$/;"	c
+M	App/App.js	/^        W: 'toutes les semaines',$/;"	p	class:App.recurence
+MonthCalendar	calendar/MonthCalendar.js	/^var MonthCalendar = function (app) {$/;"	c
+W	App/App.js	/^        D: 'tous les jours',$/;"	p	class:App.recurence
+WeekCalendar	calendar/WeekCalendar.js	/^var WeekCalendar = function (app) {$/;"	c
+Y	App/App.js	/^        M: 'tous les mois',$/;"	p	class:App.recurence
+addCls	App/App.js	/^	this.addCls = function (cls) {$/;"	m	class:App
+addEvLstns	App/App.js	/^	this.addEvLstns = function (elts, ev, callback) {$/;"	m	class:App
+addId	App/App.js	/^	this.addId = function (id) {$/;"	m	class:App
+administrateurs	App/App.js	/^	this.visibility = {$/;"	p	class:App.visibility
+allDaysOfWeek	App/App.js	/^        Y: 'tous les ans',$/;"	p	class:App.recurence
+aportAfaires	App/App.js	/^		administrateurs: 'administrateurs',$/;"	p	class:App.visibility
+buildEventArrayById	App/App.js	/^App.prototype.buildEventArrayById = function (eventsArray,ev) {$/;"	m	class:App
+buildEventObjects	xhr/xhr.js	/^					var buildEventObjects = function (events) {$/;"	f	function:var
+buildEventObjects	xhr/xhr.js	/^	this.buildEventObjects = function (events) {$/;"	m	class:xhr
+checkCurrentDatesValues	Form/Form.js	/^Form.prototype.checkCurrentDatesValues = function () {$/;"	m	class:Form
+checkFormValues	Form/Form.js	/^Form.prototype.checkFormValues = function () {$/;"	m	class:Form
+classes	Event/Event.js	/^	this.classes = function () {$/;"	m	class:Event
+cls	App/App.js	/^	this.cls = function (cls) {$/;"	m	class:App
+courtiers	App/App.js	/^		aportAfaires: 'apporteurs d\\'affaires',$/;"	p	class:App.visibility
+create	App/App.js	/^	this.create = function (elt) {$/;"	m	class:App
+createEventElement	App/App.js	/^App.prototype.createEventElement = function (ev,start,end) {$/;"	m	class:App
+createEventElement	calendar/DayCalendar.js	/^DayCalendar.prototype.createEventElement = function (ev,title,textContent,start,end) {$/;"	m	class:DayCalendar
+dataId	App/App.js	/^	this.dataId = function (id) {$/;"	m	class:App
+dateEnd	Event/Event.js	/^	this.dateEnd = function () {$/;"	m	class:Event
+dateStart	Event/Event.js	/^	this.dateStart = function () {$/;"	m	class:Event
+decodeString	App/App.js	/^App.prototype.decodeString = function (string) {$/;"	m	class:App
+delEvent	xhr/xhr.js	/^	this.delEvent = function (url,callback) {$/;"	m	class:xhr
+deleteEvent	Event/EventManager.js	/^EventManager.prototype.deleteEvent = function (e) {$/;"	m	class:EventManager
+displayAddEventForm	Event/EventManager.js	/^EventManager.prototype.displayAddEventForm = function () {$/;"	m	class:EventManager
+displayEventDetails	Event/EventManager.js	/^EventManager.prototype.displayEventDetails = function (e) {$/;"	m	class:EventManager
+displayEvents	App/App.js	/^App.prototype.displayEvents = function (nb,calendar) {$/;"	m	class:App
+displayEventsList	Event/EventManager.js	/^EventManager.prototype.displayEventsList = function (e) {$/;"	m	class:EventManager
+editEvent	Event/EventManager.js	/^EventManager.prototype.editEvent = function (e) {$/;"	m	class:EventManager
+fillCalendar	calendar/DayCalendar.js	/^DayCalendar.prototype.fillCalendar = function(res){$/;"	m	class:DayCalendar
+fillCalendar	calendar/DaysCalendar.js	/^DaysCalendar.prototype.fillCalendar = function(res){$/;"	m	class:DaysCalendar
+fillCalendar	calendar/MonthCalendar.js	/^MonthCalendar.prototype.fillCalendar = function(res){$/;"	m	class:MonthCalendar
+fillCalendar	calendar/WeekCalendar.js	/^WeekCalendar.prototype.fillCalendar = function (res) {$/;"	m	class:WeekCalendar
+formatDate	App/App.js	/^App.prototype.formatDate = function (date) {$/;"	m	class:App
+formatNumber	App/App.js	/^    this.formatNumber = function (nb) {$/;"	m	class:App
+generale	App/App.js	/^		courtiers: 'courtiers',$/;"	p	class:App.visibility
+getById	App/App.js	/^    this.getById = function (elt) {$/;"	m	class:App
+getCalendar	calendar/Calendar.js	/^Calendar.prototype.getCalendar = function (res, action) {$/;"	m	class:Calendar
+getDateEndRecText	Form/Form.js	/^Form.prototype.getDateEndRecText = function (dateEndRec, repetitionNbValue, dateEndRecValue) {$/;"	m	class:Form
+getDateToString	App/App.js	/^App.prototype.getDateToString = function (start, end) {$/;"	m	class:App
+getDates	xhr/xhr.js	/^	this.getDates = function (url, action, callback) {$/;"	m	class:xhr
+getDay	App/App.js	/^App.prototype.getDay = function () {$/;"	m	class:App
+getDays	App/App.js	/^App.prototype.getDays = function () {$/;"	m	class:App
+getDaysRecText	App/App.js	/^App.prototype.getDaysRecText = function (daysRec) {$/;"	m	class:App
+getEventArrayById	App/App.js	/^App.prototype.getEventArrayById = function (events) {$/;"	m	class:App
+getEvents	xhr/xhr.js	/^	this.getEvents = function (url, callback) {$/;"	m	class:xhr
+getMonth	App/App.js	/^App.prototype.getMonth = function () {$/;"	m	class:App
+getRangeTimeInDay	App/App.js	/^App.prototype.getRangeTimeInDay = function (hourStart, hourEnd, allDayValue) {$/;"	m	class:App
+getRecurence	Event/Event.js	/^	this.getRecurence = function () {$/;"	m	class:Event
+getRecurenceText	App/App.js	/^App.prototype.getRecurenceText = function (recurence, interval, recDays) {$/;"	m	class:App
+getTest	xhr/xhr.js	/^	this.getTest = function () {$/;"	m	class:xhr
+getTitle	App/App.js	/^App.prototype.getTitle = function (start,end,ev) {$/;"	m	class:App
+getWeek	App/App.js	/^App.prototype.getWeek = function () {$/;"	m	class:App
+getWeekDay	App/App.js	/^App.prototype.getWeekDay = function (weekDayNb) {$/;"	m	class:App
+gets	App/App.js	/^	this.gets = function (elts) { return document.querySelectorAll(elts); }$/;"	m	class:App
+hd	App/App.js	/^	this.hd = function () {$/;"	m	class:App
+hide	App/App.js	/^	this.hide = function (elt) {$/;"	m	class:App
+hides	App/App.js	/^	this.hides = function (elts) {$/;"	m	class:App
+hourEnd	Event/Event.js	/^Event.prototype.hourEnd = function () {$/;"	m	class:Event
+hourStart	Event/Event.js	/^Event.prototype.hourStart = function () {$/;"	m	class:Event
+inHtml	App/App.js	/^	this.inHtml = function (content) {$/;"	m	class:App
+initializeForm	Form/Form.js	/^Form.prototype.initializeForm = function () {$/;"	m	class:Form
+isplayEvents	calendar/DayCalendar.js	/^DaysCalendar.prototype.isplayEvents = function () {$/;"	m	class:DaysCalendar
+makeDatesFromFieldsValues	Form/Form.js	/^Form.prototype.makeDatesFromFieldsValues = function () {$/;"	m	class:Form
+makeDaysRecArray	Form/Form.js	/^Form.prototype.makeDaysRecArray = function (elt) {$/;"	m	class:Form
+null	App/App.js	/^    this.recurence = {$/;"	p	class:App.recurence
+occurencesDateEnd	Event/Event.js	/^	this.occurencesDateEnd = function () {$/;"	m	class:Event
+occurencesDateStart	Event/Event.js	/^	this.occurencesDateStart = function () {$/;"	m	class:Event
+onChangeDaysRec	Form/Form.js	/^Form.prototype.onChangeDaysRec = function (e) {$/;"	m	class:Form
+onChangeRecurence	Form/Form.js	/^Form.prototype.onChangeRecurence = function () {$/;"	m	class:Form
+onDateEndRecChange	Form/Form.js	/^Form.prototype.onDateEndRecChange = function () {$/;"	m	class:Form
+onNeverChange	Form/Form.js	/^Form.prototype.onNeverChange = function () {$/;"	m	class:Form
+onRepetitionNbChange	Form/Form.js	/^Form.prototype.onRepetitionNbChange = function () {$/;"	m	class:Form
+onSelectColor	Form/Form.js	/^Form.prototype.onSelectColor = function (e) {$/;"	m	class:Form
+onSendForm	Form/Form.js	/^Form.prototype.onSendForm = function (e) {$/;"	m	class:Form
+post	xhr/xhr.js	/^	this.post = function (url, data, callback) {$/;"	m	class:xhr
+removeEventElement	Event/EventManager.js	/^EventManager.prototype.removeEventElement = function (res) {$/;"	m	class:EventManager
+req	xhr/xhr.js	/^	this.req = function () {$/;"	m	class:xhr
+req.onreadystatechange	xhr/xhr.js	/^		req.open('GET',url);$/;"	f
+req.open.onreadystatechange	xhr/xhr.js	/^		var req = this.req();$/;"	f	function:xhr
+returnToCalendar	Event/EventManager.js	/^EventManager.prototype.returnToCalendar = function () {$/;"	m	class:EventManager
+returnToEventsList	Event/EventManager.js	/^EventManager.prototype.returnToEventsList = function () {$/;"	m	class:EventManager
+rmCls	App/App.js	/^	this.rmCls = function (cls) {$/;"	m	class:App
+setCurrentFieldsValues	Form/Form.js	/^Form.prototype.setCurrentFieldsValues = function () {$/;"	m	class:Form
+setElement	App/App.js	/^	this.setElement = function (elts) {$/;"	m	class:App
+setElements	App/App.js	/^    this.setElements = function (elts) {$/;"	m	class:App
+setEvent	App/App.js	/^App.prototype.setEvent = function (ev,column,start,end,calendar) {$/;"	m	class:App
+setEvent	calendar/DayCalendar.js	/^DayCalendar.prototype.setEvent = function (ev,start,end) {$/;"	m	class:DayCalendar
+setEvent	calendar/MonthCalendar.js	/^MonthCalendar.prototype.setEvent = function (ev,start,end) {$/;"	m	class:MonthCalendar
+setEvents	calendar/DayCalendar.js	/^DayCalendar.prototype.setEvents = function (events) {$/;"	m	class:DayCalendar
+setEvents	calendar/DaysCalendar.js	/^DaysCalendar.prototype.setEvents = function (events) {$/;"	m	class:DaysCalendar
+setEvents	calendar/MonthCalendar.js	/^MonthCalendar.prototype.setEvents = function (events) {$/;"	m	class:MonthCalendar
+setEvents	calendar/WeekCalendar.js	/^WeekCalendar.prototype.setEvents = function (events) {$/;"	m	class:WeekCalendar
+setFieldValueOnChange	Form/Form.js	/^Form.prototype.setFieldValueOnChange = function (e) {$/;"	m	class:Form
+setResume	Form/Form.js	/^Form.prototype.setResume = function () {$/;"	m	class:Form
+sho	App/App.js	/^	this.sho = function () {$/;"	m	class:App
+show	App/App.js	/^	this.show = function (elt) {$/;"	m	class:App
+shows	App/App.js	/^	this.shows = function (elts) {$/;"	m	class:App
+start	App/Action.js	/^Action.prototype.start = function () {$/;"	m	class:Action
+start	calendar/Calendar.js	/^Calendar.prototype.start = function() {$/;"	m	class:Calendar
+title	App/App.js	/^	this.title = function (title) {$/;"	m	class:App
+toggleDisableHoursFields	Form/Form.js	/^Form.prototype.toggleDisableHoursFields = function (e) {$/;"	m	class:Form
+txt	App/App.js	/^	this.txt = function (content) {$/;"	m	class:App
+val	App/App.js	/^	this.val = function (value) {$/;"	m	class:App
+validate	Form/Form.js	/^Form.prototype.validate = function (res) {$/;"	m	class:Form
+validateMonth	Form/Form.js	/^Form.prototype.validateMonth = function (date, yearElt, monthElt, dayElt) {$/;"	m	class:Form
+workingDays	App/App.js	/^        allDaysOfWeek: 'tous les jours de la semaine',$/;"	p	class:App.recurence
+xhr	xhr/xhr.js	/^var xhr = function () {$/;"	c

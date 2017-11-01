@@ -1,0 +1,138 @@
+@media screen and (max-width: 67rem){  /* 1072px */
+    header{
+        padding-bottom: 0.5rem;
+    }
+    .bloc_principal, .header, .choisir > div.flex{
+        width: 98%;
+    }
+    .image div{
+        width: 45%;
+    }
+    .rubrique{
+        padding: 4rem 2rem 0 2rem;
+    }
+    .fixed{
+        width: 98%;
+    }
+}
+
+@media screen and (max-width: 52rem){     /* 832px */
+    .form-devis{
+        flex-direction: column;
+    }
+    .type_assurance{
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .coords{
+        width: 100%;
+        justify-content: space-around;
+        margin-top: 4rem;
+    }
+}
+
+@media screen and (max-width: 40.5rem){     /* 648px */
+    .rubrique{
+        padding: 1rem 0;
+    }
+    .btn-devis{
+      width: 98%;
+        margin: auto;
+    }
+    .rubrique article{
+        flex-basis: 90%;
+    }
+    .image div{
+        width: 60%;
+    }
+    section h2, h3, .choisir h1 {
+      font-size: 1rem;
+    }
+    .type_assurance{
+        flex-direction: column;
+    }
+    section.choisir > .flex{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    section.choisir .flex.bloc{
+        margin-bottom: 2rem;
+    }
+    nav p{
+        display: none;
+    }
+    a.btn{
+        margin: 0 0.5rem;
+        padding: 0.5rem;
+    }
+    ul.part-prof{
+        display: none;
+    }
+    /*
+    .prem-connection{
+        display: none;
+    }
+     * */
+    .image div{
+        width: 70%;
+    }
+    #connexion_block {
+      flex-direction: column;
+    }
+    .footer{
+        flex-direction: column;
+    }
+    .footer .flex{
+        width: 100%;
+    }
+    .coords{
+        flex-direction: column;
+    }
+    .type_assurance > div, .quests, .coordonees{
+        width: 90%;
+    }
+    .coordonees input{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 26rem){  /* 415px */
+    .logo{
+        width: 40%;
+    }
+    footer .flex {
+      flex-direction: column;
+      align-items: start;
+    }
+    .bottom p {
+     text-align: center; 
+    }
+    #form-devis h3 {
+      font-size: 1.5rem;
+    }
+    .rubrique article{
+        flex-basis: 100%;
+        padding: 2rem 1rem;
+    }
+    .image div{
+        width: 100%;
+    }
+    .image {
+      padding: 0;
+    }
+    h1{
+        font-size: 2rem;
+        margin: 2rem 0;
+    }
+    #logo_lg {
+      display: none;
+    }
+    #logo_small {
+      font-size: 2rem;
+    }
+    #logo_xs {
+      display: block;
+    }
+}

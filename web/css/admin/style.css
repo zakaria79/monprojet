@@ -1,0 +1,454 @@
+.hide_collapse div {
+  opacity: 0;
+}
+ul {
+  list-style: none;
+}
+.rdv_info {
+  cursor: pointer;
+  position: relative;
+}
+
+.rdv_details {
+  height: 10rem;
+  transition: 0.3s;
+}
+
+.rdv_info .alert {
+  transition: 0.3s;
+}
+
+.rdv_info .alert:hover {
+  opacity: 0.7;
+  padding-left: 3rem;
+}
+
+.hide_collapse {
+  height: 0;
+}
+
+#next_button {
+  margin-left: 1rem;
+}
+
+#calendar_nav {
+  color: grey;
+}
+
+#previous_button,
+#next_button {
+  cursor: pointer;
+}
+
+#calendar_nav {
+  justify-content: space-between;
+}
+
+
+/* formulaire pour les rdv */
+
+#client_infos {
+  margin: 2rem 0;
+  border: 0.05rem solid rgb(128, 128, 128);
+  padding: 2rem;
+  border-radius: 0.2rem;
+  background: rgb(255, 255, 255);
+}
+
+#user_add_form_error,
+#user_add_form_success {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.checkbox_status {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 1rem;
+  z-index: 1000;
+}
+
+.user_list {
+  cursor: pointer;
+  transition: 0.3s;
+  padding: 0.5rem 0;
+}
+
+.user_list:hover {
+  background: rgb(52, 58, 64);
+  padding-left: 1rem;
+  color: white;
+}
+
+#add_user_confirm {
+  box-shadow: 0 0 43px 13px rgb(58, 56, 56);
+  z-index: 100;
+  position: fixed;
+  background: white;
+  left: 20%;
+  top: 20%;
+  right: 20%;
+}
+
+#cover {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  background: black;
+  opacity: 0.7;
+  transition: 0.3s;
+}
+
+.display-none {
+  display: none;
+}
+
+#users {
+  width: 80%;
+  margin: 2rem auto;
+}
+
+#user_list {
+  box-shadow: 0px 0px 5px 2px rgb(187, 183, 183);
+  padding: 1rem;
+}
+
+#user_list> div {
+  padding: 0.5rem;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+#user_list> div:hover {
+  background: rgb(234, 231, 231);
+  padding-left: 1rem;
+}
+
+#add_user_confirmation {
+  width: 80%;
+  margin: auto;
+  box-shadow: 0 0 3px 2px grey;
+}
+
+#alertConfirm {
+  transition: 0.3s;
+  position: fixed;
+  width: 60%;
+  left: 20%;
+  top: 20%;
+  background: white;
+  z-index: 100;
+  box-shadow: 0px 0px 17px 3px black;
+}
+
+#debbug {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  padding: 1rem;
+  font-size: 2rem;
+}
+
+
+nav .fa-chevron-right {
+  margin-left: 2rem;
+}
+
+#calendar i:hover {
+  color: white;
+}
+
+#title_btn_calendar {
+  margin-top: 2rem;
+}
+
+#current_date {
+  color: gray;
+  cursor: pointer;
+  padding: 0.1rem 0.2rem;
+}
+
+#current_date:hover {
+  color: white;
+}
+
+#month table {
+  height: 90vh;
+}
+
+table {
+  width: 100vw;
+}
+
+#current_date.active {
+  border: 0.1rem solid grey;
+  color: white;
+}
+
+#week {
+  overflow: scroll;
+}
+
+th {
+  text-align: center;
+  height: 2rem;
+  font-weight: initial;
+}
+
+#month td {
+  position: relative;
+  padding: 0 0 1rem 1rem;
+  box-sizing: border-box;
+  vertical-align: bottom;
+}
+
+.today {
+  background: rgb(19, 135, 149);
+}
+
+.prevNext {
+  color: rgb(204, 200, 200);
+}
+
+.calendar .hours {
+  width: 1rem;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+td {
+  border-left: 0.1rem solid rgb(242, 234, 234);
+  border-top: 0.1rem solid grey;
+  cursor: pointer;
+}
+
+.flex {
+  display: flex;
+}
+
+.date_to_string {
+  color: gray;
+}
+
+#error_message,
+#success_message {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 100000;
+}
+
+.hide {
+  opacity: 0;
+}
+
+#logo_du_site span {
+  color: rgb(243, 86, 86);
+}
+#logo_xs {
+  font-size: 0.7rem;
+  display: none;
+}
+#logo_du_site {
+  color: white;
+}
+#logo_small {
+  font-size: 0.7rem;
+}
+#month .event {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.22);
+  color: black;
+  font-size: 1.3rem;
+  padding: 0.2rem;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+#month .event {
+  height: 1.6rem;
+  overflow: hidden;
+  font-size: 0.9rem;
+}
+
+.eventMonth {
+  position: absolute;
+  top: 0;
+  right: -0.1rem;
+  left: -0.1rem;
+  font-size: 0.6rem;
+}
+
+
+/*
+ * Divs couleurs
+ *
+ */
+
+.color {
+  cursor: pointer;
+}
+
+.colors {
+  justify-content: flex-start;
+  align-items: center;
+  margin: 3rem 0;
+}
+
+.color,
+.empty,
+#selectedColor {
+  text-align: center;
+  margin-left: 1rem;
+  height: 2rem;
+  width: 2rem;
+}
+
+.blue {
+  background: rgba(49, 151, 159, 0.39);
+}
+
+.red {
+  background: rgba(230, 24, 46, 0.62);
+}
+
+.green {
+  background: rgba(65, 209, 122, 0.64);
+}
+
+.grey {
+  background: rgb(225, 225, 225);
+}
+
+.yellow {
+  background: orange;
+}
+
+.maroon {
+  background: maroon;
+}
+
+.blue,
+.green,
+.grey,
+.red,
+.yellow,
+.maroon {
+  color: white;
+}
+
+
+/*
+   * Nouveau
+   */
+
+form .date {
+  width: 45%;
+}
+
+form .time {
+  width: 25%;
+}
+
+form .d-flex {
+  align-items: baseline;
+}
+
+#endRec {
+  width: 50% !important;
+}
+
+.has-error input,
+.has-error select {
+  border: 0.1rem solid red;
+  box-shadow: 0 0 2px 2px red;
+  border: 1px solid rgb(209, 72, 72);
+  box-shadow: 0 0 4px 2px rgb(209, 72, 72);
+}
+
+#week td,
+#days td,
+#day td {
+  position: relative;
+}
+
+.eventWeek .event,
+#days .event,
+#day .event {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 20%;
+}
+
+.event2 {
+  left: 20%;
+}
+
+.event3 {
+  left: 40%;
+}
+
+.event4 {
+  left: 60%;
+}
+
+.event5 {
+  left: 80%;
+}
+
+.event_title {
+  position: absolute;
+  z-index: 100;
+}
+
+#day .event_title {
+  right: 1rem;
+}
+
+.count_events {
+  position: absolute;
+  font-size: 0.8rem;
+}
+
+#day .count_events {
+  right: 1rem;
+}
+
+#list {
+  padding: 2rem 0;
+}
+
+.event_list {
+  padding: 0.5rem 0;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.event_list:hover {
+  background: rgb(224, 223, 223);
+  padding-left: 0.2rem;
+}
+
+.countEvent {
+  position: absolute;
+  bottom: 0.2rem;
+  right: 0.2rem;
+  font-size: 0.7rem;
+}
+
+#eventDetails> div {
+  margin: 1rem 0;
+}
+
+.deletedEvent {
+  color: red;
+  margin-left: 1rem;
+}

@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>lesitedelassurance.fr comparateur assurance</title>
+    <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}" type="text/css">
+    <link href="{{ asset('https://fonts.googleapis.com/css?family=Nunito') }}" rel="stylesheet"> 
+    <link rel="stylesheet" href="{{ asset('lib/bootstrap-4.0.0-beta-dist/css/bootstrap.min.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/home/style.css') }}" type="text/css" >
+    <link rel="stylesheet" href="{{ asset('css/home/responsive.css') }}" type="text/css" >
+    <link rel="stylesheet" href="{{ asset('css/jq.css') }}" type="text/css" >
+    <link rel="shortcut icon" href="images/favicon.ico">
+  </head>
+    <body>
+      <header>
+        <div class="header flex">
+          <p class="bars"><i class="fa fa-bars" aria-hidden="true"></i></p>
+          <a href="{{ path('courtalia')}}" class="logo">
+            <div id="logo_du_site">
+              <div id="logo_lg">
+                <span>l</span>e<span>s</span>ite<span>d</span>e<span>l</span><span>a</span>ssurance 
+              </div>
+              <div id="logo_small">
+                lsdla
+              </div>
+              <div id="logo_xs">
+                <span>l</span>e<span>s</span>ite<span>d</span>e<span>l</span><span>a</span>ssurance 
+              </div>
+            </div>
+          </a>
+          <ul class="part-prof">
+            <li><a class="devis-pros-part devis-particulier" data-type="particulier" href="#" >» Particuliers</a></li>
+            <li><a class="devis-pros-part devis-professionel" href="#" data-type="professionel">» Professionel</a></li>
+          </ul>	
+          <div class="espace-partenaires">
+            {% if user.isAuthenticated %}
+              <p>Bonjour, {{ user.user_first_name }}</p>
+              <div id="connexion_block" class="flex">
+                <a class="btn btn-outline-primary" 
+                  {% if user.role == 'Administrateur' %}
+                      href="{{ path('admin_courtalia') }}">
+                      <i class="fa fa-user-plus" aria-hidden="true"></i> admin
+                  {% else %}
+                      href="{{ path('partner', {page: 'reporting'}) }}">
+                      <i class="fa fa-user" aria-hidden="true"></i> Mon compte
+                  {% endif %}
+                      </a>
+            {% else %}
+              <p>Espace partenaire</p>
+              <div id="connexion_block" class="flex">
+                <a href="{{ path('login') }}" class="btn btn-outline-primary" ><i class="fa fa-lock" aria-hidden="true"></i>
+                  Se connecter
+                </a>
+            {% endif %}
+            <ul class="prem-connection">
+            {% if user.isAuthenticated %}
+              <li><a href="{{ path('logout') }}">» Se deconecter</a></li>
+              {#
+            {% else %}
+              <li><a href="#">» Mot de passe oublié</a></li>
+              <li><a href="#" >» Première connexion</a></li>
+              #}
+            {% endif %}
+                </ul>
+              </div>
+            </div>
+            <p class="user-plus"><i class="fa fa-user-plus" aria-hidden="true"></i></p>
+          </div>
+      </header>
+      {% for message in app.session.flashbag.get('success_message') %}
+      <div class="alert alert-success">{{ message }}</div>
+      {% endfor %}
+      <div class="bloc_principal">
+        <div class="image flex">
+          <div>
+            <h2>AVANTAGES lesitedelassurance</h2>
+            <p><i class="fa fa-check" aria-hidden="true"></i> Mettez en concurance les plus grands assureurs</p>
+            <p><i class="fa fa-check" aria-hidden="true"></i> Profitez des meileurs tarifs négociés par nos cabinets</p>
+          </div>
+        </div>
+        <nav class="flex">
+          <a href="#auto" class="logos nav-link auto">
+            <div class="nav-logo">
+              <i class="fa fa-car" aria-hidden="true"></i>	
+            </div>
+            <p>auto</p>
+          </a>
+          <a href="#pros" class="logos  nav-link pros">
+            <div class="nav-logo">
+              <i class="fa fa-wrench" aria-hidden="true"></i>
+            </div>
+            <p>professionnels</p>
+          </a>
+          <a href="#sante" class="logos  nav-link sante">
+            <div class="nav-logo">
+              <i class="fa fa-medkit" aria-hidden="true"></i>	
+            </div>
+            <p>santé</p>
+          </a>
+          <a href="#pret" class="logos  nav-link pret">
+            <div class="nav-logo">
+              <i class="fa fa-eur" aria-hidden="true"></i>
+            </div>
+            <p>assurance prêt</p>
+          </a>
+          <a href="#habitation" class="logos  nav-link habitation">
+            <div class="nav-logo">
+              <i class="fa fa-home" aria-hidden="true"></i>	
+            </div>
+            <p>habitation</p>
+          </a>
+          <a href="#prevoyance" class="logos  nav-link prevoyance">
+            <div class="nav-logo">
+              <i class="fa fa-umbrella" aria-hidden="true"></i>
+            </div>
+            <p>prévoyance</p>
+          </a>
+        </nav>
+        <div class="separateur"></div>
+        <div id="form-devis">
+
+          <h3 class="bg-primary p-3 text-white d-flex justify-content-between align-items-center">
+            Obtenez Un Devis Gratuit Tout-de Suite !
+            <button id="btn-toggle-display-form" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseFormDevis" aria-expanded="false" aria-controls="collapseFormDevis">
+              <i class="fa fa-plus-circle" aria-hidden="true"></i>
+            </button>
+          </h3>
+          <div class="collapse" id="collapseFormDevis">
+            <form id="formulaire" action="{{ path('devis') }}" method="post" accept-charset="utf-8" class="p-3">
+              <div class="d-flex justify-content-around">
+                <div class="form-check form-check-inline">
+                  <label for="professionel" class="form-check-label">
+                    <input class="form-check-input" type="radio" name="pros-part" id="professionel" value="Professionnel">
+                    Professionel
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <label for="particulier" class="form-check-label">
+                    <input class="form-check-input" type="radio" name="pros-part" id="particulier" value="Particulier" checked>
+                    Particulier
+                  </label>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="lastname" class="col-form-label">Votre Nom <span class="text-danger"> * </span></label>
+                  <input type="text" id="lastname" name="lastname" class="form-control" placeholder="Votre Nom" required>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="firstname" class="col-form-label">Votre Prénom<span class="text-danger"> * </span></label>
+                  <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Votre Prénom" required>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="tel" class="col-form-label">Numéro de Téléphone<span class="text-danger"> * </span></label>
+                  <input type="text" id="tel" name="tel" class="form-control" placeholder="Votre Numéro De Téléphone" required>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="birth_date" class="col-form-label">Votre Date De Naissance<span class="text-danger"> * </span></label>
+                  <input type="text" class="form-control" id="datepicker" name="birth_date" placeholder="Votre Date De Naissance" required>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="cp" class="col-form-label">Code Postal<span class="text-danger"> * </span></label>
+                  <input type="text" id="cp" name="postal_code" class="form-control" placeholder="Votre Code Postal" required>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="city" class="col-form-label">Ville<span class="text-danger"> * </span></label>
+                  <input type="text" class="form-control" id="city" name="city" placeholder="Ville" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="mail" class="col-form-label">E-mail<span class="text-danger"> * </span></label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="Adresse E-mail" required>
+              </div>
+              <div class="form-group">
+                <label for="type-assurance">Type D'Assurance</label>
+                <select id="type-assurance" class="type-assurance form-control" name="insurance_type">
+                  <option value="auto">Auto</option>
+                  <option value="sante" selected >Santé</option>
+                  <option value="pret">Assurance prêt</option>
+                  <option value="habitation">Habitation</option>
+                  <option value="prevoyance">Prévoyance</option>
+                </select>
+              </div>
+              <div class="quests">
+                <div class="questions questions-sante">
+                  <div class="d-flex justify-content-between"><p>Hospitalisation :</p>
+                    <p id="hospitalisation-star" class="stars">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    </p>
+                  </div>
+                  <div class="d-flex justify-content-between"><p>Optique :</p>
+                    <p id="optique-star" class="stars">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    </p>
+                  </div>
+                  <div class="d-flex justify-content-between"><p>Médecine :</p>
+                    <p id="medecine-star" class="stars">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    </p>
+                  </div>
+                  <div class="d-flex justify-content-between"><p>Dentaire :</p>
+                    <p id="dentaire-star" class="stars">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    </p>
+                  </div>
+                </div>
+                <div class="questions questions-auto">
+                  <div class="h4">Êtes-vous assuré actuellement ?</div>
+                  <div class="auto form-check">
+                    <label for="assure-oui" class="form-check-label">
+                      <input class="form-check-input" type="radio" name="assure" id="assure-oui" value="2" checked>
+                      Oui
+                    </label>
+                  </div>
+                  <div class="auto form-check">
+                    <label class="form-check-label" for="assure-non">
+                      <input class="form-check-input" type="radio" name="assure" id="assure-non" value="1" />
+                      Non
+                    </label>
+                  </div>
+                  <div class="h4">Avez-vous du bonus ?</div>
+                  <div class="auto form-check">
+                    <label class="form-check-label" for="bonus-oui">
+                      <input class="form-check-input" type="radio" name="bonus" id="bonus-oui" value="2" />
+                      Oui
+                    </label>
+                  </div>
+                  <div>
+                    <label class="form-check-label" for="bonus-non">
+                      <input class="form-check-input" type="radio" name="bonus" id="bonus-non" value="2" checked/>
+                      Non
+                    </label>
+                  </div>
+                  <div class="h4">Garanties souhaités :</div>
+                  <div class="auto form-check">
+                    <label class="form-check-label" for="simple">
+                      <input class="form-check-input" type="radio" name="garantie_souhaite" id="simple" value="simple" checked/>
+                      Tiers simple
+                    </label>
+                  </div>
+                  <div class="auto form-check">
+                    <label class="form-check-label" for="plus">
+                      <input class="form-check-input" type="radio" name="garantie_souhaite" id="plus" value="plus" />
+                      Tiers plus
+                    </label>
+                  </div>
+                  <div class="auto form-check">
+                    <label class="form-check-label" for="risques">
+                      <input class="form-check-input" type="radio" name="garantie_souhaite" id="risques" value="risques" />
+                      Tous risques
+                    </label>
+                  </div>
+                </div>
+                <div class="questions questions-pret">
+                  <div class="h4">Êtes-vous assuré actuellement ?</div>
+                  <div class="auto form-check">
+                    <label class="form-check-label" for="assure-oui">
+                      <input class="form-check-input" type="radio" name="assure_actuellement" id="assure-oui" value="2" />
+                      Oui
+                    </label> 
+                  </div>
+                  <div class="auto form-check">
+                    <label class="form-check-label" for="assure-non">
+                      <input class="form-check-input" type="radio" name="assure_actuellement" id="assure-non" value="1" checked/>
+                      Non
+                    </label>
+                  </div>
+                  <div class="h4">Residence principale ?</div>
+                  <div class="auto form-check">
+                    <label class="form-check-label" for="residence-oui">
+                      <input class="form-check-input" type="radio" name="residence_principale" id="residence-oui" value="2" checked/>
+                      Oui
+                    </label>
+                  </div>
+                  <div class="auto form-check">
+                    <label class="form-check-label" for="residence-non">
+                      <input class="form-check-input" type="radio" name="residence" id="residence-non" value="1" />
+                      Non
+                    </label>
+                  </div>
+                </div>
+                <div class="questions questions-habitation">
+                  <div class="h4">Vous vivez dans ?</div>
+                  <div class="auto form-check">
+                    <label class="form-check-label" for="appart">
+                      <input class="form-check-input" type="radio" name="habitation_actuelle" id="appart" value="appartement" checked/>
+                      Appartement
+                    </label> 
+                  </div>
+                  <div class="auto form-check">
+                    <label class="form-check-label" for="pav">
+                      <input class="form-check-input" type="radio" name="habitation_actuelle" id="pav" value="maison" />
+                      Maison
+                    </label>
+                  </div>
+                  <div>Nombre de pièces ?</div>
+                  <div class="form-group">
+                    <select class="form-control" name="nb_pieces">
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10">10</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="questions questions-prevoyance">
+                  <div class="h4">Type de garanties souhaités </div>
+                  <hr>
+                  <div class="h5">Assurance décès </div>
+                  <div class="auto form-check">
+                    <label class="form-check-label" for="deces-oui">
+                      <input class="form-check-input" type="radio" name="assurance_deces" id="deces-oui" value="2" checked/>
+                      Oui
+                    </label> 
+                  </div>
+                  <div class="auto form-check">
+                    <label class="form-check-label" for="deces-non">
+                      <input class="form-check-input" type="radio" name="assurance_deces" id="deces-non" value="1" />
+                      Non
+                    </label>
+                  </div>
+                  <div class="h5">Accident de la vie ?</div>
+                  <div class="auto form-check">
+                    <label class="form-check-label" for="accident-vie-oui">
+                      <input class="form-check-input" type="radio" name="accident_vie" id="accident-vie-oui" value="2" checked/>
+                      Oui
+                    </label>
+                  </div>
+                  <div class="auto form-check">
+                    <label class="form-check-label" for="accident-vie-non">
+                      <input class="form-check-input" type="radio" name="accident_vie" id="accident-vie-non" value="1" />
+                      Non
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div id="form_devis_success_message" class="alert alert-success form-message">Success</div>
+              <div class="alert alert-danger text-center form-message my-3">Danger</div>
+              <hr class="mt-5">
+              <div class="form-group">
+                <button class="btn btn-outline-primary btn-lg btn-block" type="submit">Valider Mes Informations</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="separateur"></div>
+        <section class="rubrique" id="auto">
+          <h1>AUTO</h1>
+          <div class="flex auto">
+            <article>
+              <h3>ASSURANCE AUTO</h3>
+              <ul>
+                <li><i class="fa fa-hand-o-right mr-2 text-success" aria-hidden="true"></i> Excellents tarifs, Venez comparer !</li>
+                <li><i class="fa fa-hand-o-right mr-2 text-success" aria-hidden="true"></i> Jeunes conducteurs acceptés</li>
+                <li><i class="fa fa-hand-o-right mr-2 text-success" aria-hidden="true"></i> Risques agravés compris</li>
+                <li><i class="fa fa-hand-o-right mr-2 text-success" aria-hidden="true"></i> Dépannage 0 kilomètre</li>
+                <li><i class="fa fa-hand-o-right mr-2 text-success" aria-hidden="true"></i> Prêt de véhicule…</li>
+              </ul>
+            </article>
+          </div>
+          <div class="btn-devis py-3">
+            <div class="btn btn-outline-primary btn-lg btn-block devis-auto devis" data-type="auto">
+              Obtenir un devis
+            </div>
+          </div>
+        </section>
+        <div class="separateur"></div>
+        <section class="rubrique" id="pros">
+          <h1>PROFESSIONNELS</h1>
+          <div class="flex pros">
+            <article>
+              <h3>PROFESSIONNELS</h3>
+              <ul>
+                <li><i class="fa fa-hand-o-right mr-2 text-success" aria-hidden="true"></i> Artisant, Commerçant, Libéral, TPE, PME, TNS</li>
+                <li><i class="fa fa-hand-o-right mr-2 text-success" aria-hidden="true"></i> Perte d'exploitation, Flotte auto, Locaux…</li>
+                <li><i class="fa fa-hand-o-right mr-2 text-success" aria-hidden="true"></i> Mutuelle Groupe, Prévoyance Groupe</li>
+                <li><i class="fa fa-hand-o-right mr-2 text-success" aria-hidden="true"></i> Conseil, Analyse de vos risques</li>
+                <li><i class="fa fa-hand-o-right mr-2 text-success" aria-hidden="true"></i> Tarifs attractifs</li>
+              </ul>
+            </article>
+          </div>
+          <div class="btn-devis py-3">
+            <button class="text-center btn btn-outline-primary btn-lg btn-block dev-professionel btn-devis devis-pros-part" data-type="professionel">
+              Obtenir un devis
+            </button>
+          </div>
+        </section>
+        <div class="separateur"></div>
+        <section class="rubrique" id="sante">
+          <h1>SANTÉ</h1>
+          <div class="flex sante">
+            <article>
+              <h3>SANTÉ</h3>
+              <ul>
+                <li><i class="fa fa-hand-o-right mr-2 text-success" aria-hidden="true"></i> Comparatif des meilleurs compagnies</li>
+                <li><i class="fa fa-hand-o-right mr-2 text-success" aria-hidden="true"></i> Jusqu'à 1000 € en optique</li>
+                <li><i class="fa fa-hand-o-right mr-2 text-success" aria-hidden="true"></i> Honoraires d'hospitalisation :FRAIS RÉELS</li>
+                <li><i class="fa fa-hand-o-right mr-2 text-success" aria-hidden="true"></i> 500% Dentaire</li>
+                <li><i class="fa fa-hand-o-right mr-2 text-success" aria-hidden="true"></i> Ostéopathie, chiropracteur, médecine douce remboursée !</li>
+                <li><i class="fa fa-hand-o-right mr-2 text-success" aria-hidden="true"></i> Les tarifs les plus bas du marché !</li>
+              </ul>
+            </article>
+          </div>
+          <div class="btn-devis py-3">
+            <div class="btn btn-outline-primary btn-lg btn-block devis-sante devis" data-type="sante">
+              Obtenir un devis
+            </div>
+          </div>
+        </section>
+        <div class="separateur"></div>
+        <section class="rubrique" id="pret">
+          <h1>ASSURANCE PRÊT</h1>
+          <div class="flex pret">
+            <article>
+              <h3>ASSURANCE DE PRÊT</h3>
+              <ul>
+                <li><i class="fa fa-hand-o-right mr-2 text-success" aria-hidden="true"></i> Excellents tarifs</li>
+                <li><i class="fa fa-hand-o-right mr-2 text-success" aria-hidden="true"></i> Multiples options</li>
+                <li><i class="fa fa-hand-o-right mr-2 text-success" aria-hidden="true"></i> Loi Hamon</li>
+              </ul>
+              <p class="lead"><em>N'hésitez plus !</em></p>
+            </article>
+          </div>
+          <div class="btn-devis py-3">
+            <div class="btn btn-outline-primary btn-lg btn-block devis-pret devis" data-type="pret">
+              Obtenir un devis
+            </div>
+          </div>
+        </section>
+        <div class="separateur"></div>
+        <section class="rubrique" id="habitation">
+          <h1>HABITATION</h1>
+          <div class="flex habitation">
+            <article>
+              <h3>HABITATION</h3>
+              <ul>
+                <li><i class="fa fa-hand-o-right mr-2 text-success" aria-hidden="true"></i> Haut niveau de couverture</li>
+                <li><i class="fa fa-hand-o-right mr-2 text-success" aria-hidden="true"></i> 0 Franchise</li>
+                <li><i class="fa fa-hand-o-right mr-2 text-success" aria-hidden="true"></i> Et toujours le meilleur tarif</li>
+              </ul>
+              <p class="lead"><em>Comparez !</em></p>
+            </article>
+          </div>
+          <div class="btn-devis py-3">
+            <div class="btn btn-outline-primary btn-lg btn-block devis-habitation devis" data-type="habitation">
+              Obtenir un devis
+            </div>
+          </div>
+        </section>
+        <div class="separateur"></div>
+        <section class="rubrique" id="prevoyance">
+          <h1>PRÉVOYANCE</h1>
+          <div class="flex prevoyance">
+            <article>
+              <h3>PRÉVOYANCE</h3>
+              <ul>
+                <li><i class="fa fa-hand-o-right mr-2 text-success" aria-hidden="true"></i> Vous assurer contre tous type d'accident</li>
+                <li><i class="fa fa-hand-o-right mr-2 text-success" aria-hidden="true"></i> Versement capital déces jusqu'à 1.000.000 € "Toutes Causes !"</li>
+                <li><i class="fa fa-hand-o-right mr-2 text-success" aria-hidden="true"></i> Maintient de salaire</li>
+                <li><i class="fa fa-hand-o-right mr-2 text-success" aria-hidden="true"></i> Indémnité journalière</li>
+                <li><i class="fa fa-hand-o-right mr-2 text-success" aria-hidden="true"></i> Tarifs bas, testez-nous !</li>
+              </ul>
+            </article>
+          </div>
+          <div class="btn-devis py-3">
+            <div class="btn btn-outline-primary btn-lg btn-block devis-prevoyance devis" data-type="prevoyance">
+              Obtenir un devis
+            </div>
+          </div>
+        </section>
+      </div>
+      <section class="choisir">
+        <h1>POURQUOI CHOISIR lesitedelassurance ?</h1>
+        <div class="flex">
+          <div class="flex bloc">
+            <div class="icon">
+              <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+            </div>
+            <div>
+              <h3>LA CONCURANCE</h3>
+              <p>lesitedelassurance vous permet de mettre en concurance les plus grands Assureurs</p>
+            </div>
+          </div>
+          <div class="flex bloc">
+            <div class="icon">
+              <i class="fa fa-usd" aria-hidden="true"></i>
+            </div>
+            <div>
+              <h3>DES ÉCONNOMIES GARANTIES</h3>
+              <p>Bénéficiez des meilleurs tarifs négociés par nos cabinets</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+<div class="collapse text-center" id="collapseMentionsLegales">
+  <div class="card card-body p-5">
+    <h2>Mentions Légales</h2>
+    <p><em>Le site de l'assurance est une marque de Courtalia</em></p>
+    <div> <strong>Numéro de SIRET : </strong> 51905758200016 </div>
+    <div> <strong>Numéro ORIAS : </strong>  10054256</div>
+    <div> <strong>Directeur Technique : </strong> Zakaria OTHMANE</div>
+    <div> <strong>Hébergeur du site : </strong> https://www.ovh.com/fr/</div>
+  </div>
+</div>
+
+
+      <footer>
+        <div class="flex footer">
+          <div class="flex">
+            <ul>
+              <li><a href="#auto" class="nav-link">AUTO</a></li>
+              <li><a href="#pros" class="nav-link">PROFESSIONELS</a></li>
+              <li><a href="#sante" class="nav-link">SANTÉ</li></a>
+            </ul>
+            <ul>
+              <li><a href="#pret" class="nav-link"> ASSURANCE PRÊT</a></li>
+              <li><a href="#habitation" class="nav-link"> HABITATION</a></li>
+              <li><a href="#prevoyance" class="nav-link"> PRÉVOYANCE</a></li>
+            </ul>
+          </div>
+          <div class="flex">
+            <ul>
+              <li>NOUS CONTACTER</li>
+              <li>
+                <a class="contact" href="mailto:contact@lesitedelassurance.fr">contact@lesitedelassurance.fr</a>
+              </li>
+            </ul>
+            <ul>
+              <li><a data-toggle="collapse" data-target="#collapseMentionsLegales" aria-expanded="false" aria-controls="collapseMentionsLegales" href="#">MENTIONS LÉGALES</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="bottom">
+          <div class="scrollTop">
+            <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+          </div>
+          {#
+          <p class="logos-sociaux">
+            <a href="https://www.facebook.com/3WAcademy"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+            <a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
+            <a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
+          </p>
+          #}
+        </div>
+      </footer>
+      <script src="{{ asset('js/Jquery/jquery-3.1.1.min.js') }}" charset="utf-8"> </script>
+      <script src="{{ asset('js/dist/polyfill.min.js') }}" charset="utf-8"> </script>
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+      <script src="{{ asset('js/dist/courtaliaHome.js') }}" charset="utf-8"> </script>
+    </body>
+</html>

@@ -1,0 +1,17 @@
+h1 {
+	font-size: 3rem;
+	padding: 2rem;
+	color: white;
+  margin: auto;
+  font-weight: bold;
+}
+body {
+  background: url('../../images/error_page.jpeg') center center no-repeat / cover fixed, rgb(115, 142, 160);
+  background-blend-mode: luminosity;
+  height: 100vh;
+}
+.main {
+  display: flex;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.77);
+}
