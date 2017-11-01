@@ -1,4 +1,4 @@
-create database if not exists monprojet_user character set utf8 collate utf8_unicode_ci;
-use monprojet;
+CREATE database if NOT EXISTS monprojet character SET utf8 collate utf8_unicode_ci;
+USE monprojet;
 
-grant all privileges on monprojet.* to 'monprojet_user'@'localhost' identified by 'monprojet';
+GRANT ALL PRIVILEGES ON monprojet.* TO 'monprojet_user'@'localhost' IDENTIFIED BY 'monprojet';
