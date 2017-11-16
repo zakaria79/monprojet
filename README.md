@@ -42,18 +42,18 @@ tel que Symphony ou React.
 
 Une application mobile est aussi prévue
 
-##Description du projet
+## Description du projet
 
-###fonctionnalités:
+### Fonctionnalités:
 
-####Page d'accueil
+#### Page d'accueil
 
  * Connexion et déconnexion pour les administrateurs et partenaires
  * Formulaire intéractif, certains champs changent en fonction des selections de l'utilisateur
     Le formulaire est soumis via une requête Ajax 'POST' et se referme après validation
 
 
-####Espace "Partenaire"
+#### Espace "Partenaire"
 
 Toutes les intéractions avec l'utilisateur sont gérées en JavaScript natif
 
@@ -66,18 +66,18 @@ L'espace "Partenaire" a trois pages:
 
 La navigation entre les deux premières pages est totalement géré avec du JavaScript natif
 
-#####La page "Reporting"
+##### La page "Reporting"
 
   * Affichage avec pagination des rendez-vous pris par le partenaire avec des information sur le client et
   le status du rendez-vous
 
-#####La page "Calendrier"
+##### La page "Calendrier"
 
   * Calendrier semainier pour prendre des rendez-vous. Les plages disponibles sont affichés en rouge
   Un formulaire de rendez-vous est affiché lorsqu'une plage horaire est sélectionnée
 
 
-####Espace "Administrateur"
+#### Espace "Administrateur"
 
 Toutes les intéractions avec l'utilisateur sont gérées en JavaScript natif
 
