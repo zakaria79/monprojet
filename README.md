@@ -27,10 +27,10 @@ Pour installer le projet dans un serveur :
 
 ## Langages
 
-* PHP
+* PHP7
 * JavaScript (ES6)
 * HTML 5
-* CSS
+* CSS3
 * SQL
 
 
