@@ -79,6 +79,9 @@ La navigation entre les deux premières pages est totalement géré avec du Java
 
 #### Espace "Administrateur"
 
+Je travail encore sur la partie "Partenaire" et la partie "Administrateur",
+il y a encore quelques test à faire
+
 Toutes les intéractions avec l'utilisateur sont gérées en JavaScript natif
 
 L'administrateur peut:
