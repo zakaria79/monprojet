@@ -9,9 +9,21 @@ Pour installer le projet dans un serveur :
 * Importer dans la base de données MySQL ou MariaDB les fichiers sql qui se trouvent dans le dossier db/
 * Ne pas oublier de créer le dossier var/logs à la racine du projet et d'autoriser l'écriture
 * Identifiants admin : zakaria@gmail.com
-* Mot de passe admin : zakaria
+* Mot de passe admin : zakaria (pour essayer l'espace administrateur)
 * Identifiant partenaire : partenaire@gmail.com
 * Mot de passe partenaire : partenaire
+
+## Coté serveur (sur Ubuntu)
+
+* sudo a2enmod rewrite
+* sudo systemctl restart apache2
+
+### Acceder au site en local à l'adresse "monprojet/"
+
+* Copier le fichier apache-conf/monprojet.conf dans /etc/apache2/sites-available/
+* sudo a2ensite monprojet.conf
+* sudo systemctl restart apache2
+* Ajouter la ligne "127.0.0.1 monprojet" dans /etc/hosts
 
 ## Framework, bibliothèques, outils utilisés
 
