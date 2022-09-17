@@ -20,7 +20,7 @@
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "bootstrap": "^4.0.0-alpha.6",
-    "jquery": "^3.2.1",
+    "jquery": "^3.5.0",
     "popper.js": "^1.12.6",
     "tether": "^1.4.0"
   }
